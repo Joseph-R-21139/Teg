@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://dg52xwg02kwpe" path="res://Scripts/player_1.gd" id="1_tmdyv"]
 [ext_resource type="Script" uid="uid://2hr4wm52v6l3" path="res://Scripts/player_2.gd" id="3_mv22w"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmdyv"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mv22w"]
+radius = 11.0
+height = 34.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0e4v"]
 atlas = ExtResource("1_2mvbs")
@@ -85,32 +86,55 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv22w"]
+size = Vector2(14, 9)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w7s1m"]
+radius = 11.0
+height = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7s1m"]
+size = Vector2(14, 9)
+
 [node name="player_base" type="Node2D" unique_id=1884741688]
 
 [node name="player_1" type="CharacterBody2D" parent="." unique_id=153745980]
 script = ExtResource("1_tmdyv")
 metadata/_edit_group_ = true
 
-[node name="collision_p1" type="CollisionShape2D" parent="player_1" unique_id=594840841]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_tmdyv")
+[node name="Area2D" type="Area2D" parent="player_1" unique_id=311330971]
+
+[node name="player_1_tag_shape" type="CollisionShape2D" parent="player_1/Area2D" unique_id=120612633]
+shape = SubResource("CapsuleShape2D_mv22w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player_1" unique_id=319075457]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_et7db")
-frame_progress = 0.51644504
+frame = 8
+frame_progress = 0.59309375
+
+[node name="collision_p1" type="CollisionShape2D" parent="player_1" unique_id=594840841]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_mv22w")
 
 [node name="player_2" type="CharacterBody2D" parent="." unique_id=735358170]
 position = Vector2(90, 0)
 script = ExtResource("3_mv22w")
 metadata/_edit_group_ = true
 
-[node name="collision_p2" type="CollisionShape2D" parent="player_2" unique_id=1091120736]
-physics_interpolation_mode = 2
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_tmdyv")
+[node name="Area2D" type="Area2D" parent="player_2" unique_id=205850753]
+
+[node name="player_2_tag_shape" type="CollisionShape2D" parent="player_2/Area2D" unique_id=1499541904]
+shape = SubResource("CapsuleShape2D_w7s1m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player_2" unique_id=1644013872]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_et7db")
 frame_progress = 0.51644504
+
+[node name="collision_p2" type="CollisionShape2D" parent="player_2" unique_id=1091120736]
+physics_interpolation_mode = 2
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_w7s1m")
+
+[connection signal="body_entered" from="player_1/Area2D" to="player_1" method="_on_area_2d_body_entered"]
