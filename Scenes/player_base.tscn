@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://2hr4wm52v6l3" path="res://Scripts/player_2.gd" id="3_mv22w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmdyv"]
-radius = 9.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0e4v"]
 atlas = ExtResource("1_2mvbs")
