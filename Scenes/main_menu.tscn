@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bg57gq80v7cf8"]
+
+[ext_resource type="Script" uid="uid://c4e8ljwde8e1s" path="res://Scripts/buttons.gd" id="1_28flt"]
+
+[node name="main_menu" type="Node2D" unique_id=745996633]
+
+[node name="VISUAL_ASSETES" type="Node2D" parent="." unique_id=1993182872]
+
+[node name="BUTTONS" type="Node2D" parent="." unique_id=954126762]
+script = ExtResource("1_28flt")
+
+[node name="Exit_button" type="Button" parent="BUTTONS" unique_id=430370525]
+offset_left = 422.0
+offset_top = 494.0
+offset_right = 749.0
+offset_bottom = 567.0
+text = "Quit game"
+
+[node name="Options_button" type="Button" parent="BUTTONS" unique_id=1711891245]
+offset_left = 422.0
+offset_top = 381.0
+offset_right = 751.0
+offset_bottom = 453.0
+text = "Options"
+
+[node name="Play _button" type="Button" parent="BUTTONS" unique_id=2082914724]
+offset_left = 420.0
+offset_top = 284.0
+offset_right = 749.0
+offset_bottom = 356.0
+text = "Play game"
+
+[connection signal="pressed" from="BUTTONS/Exit_button" to="BUTTONS" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="BUTTONS/Options_button" to="BUTTONS" method="_on_options_button_pressed"]
+[connection signal="pressed" from="BUTTONS/Play _button" to="BUTTONS" method="_on_play__button_pressed"]
