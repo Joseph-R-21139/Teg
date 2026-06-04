@@ -3,9 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://bp8hrhqt3dr2x" path="res://Sprites/Egg_Idle.png" id="1_2mvbs"]
 [ext_resource type="Script" uid="uid://dg52xwg02kwpe" path="res://Scripts/player_1.gd" id="1_tmdyv"]
 [ext_resource type="Script" uid="uid://2hr4wm52v6l3" path="res://Scripts/player_2.gd" id="3_mv22w"]
+[ext_resource type="PackedScene" uid="uid://bcad47dwu11em" path="res://Scenes/indicator.tscn" id="4_w7s1m"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmdyv"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mv22w"]
+radius = 12.0
+height = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7s1m"]
+size = Vector2(18, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0e4v"]
 atlas = ExtResource("1_2mvbs")
@@ -85,32 +90,57 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ief1t"]
+radius = 12.0
+height = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xuw1"]
+size = Vector2(18, 14)
+
 [node name="player_base" type="Node2D" unique_id=1884741688]
 
 [node name="player_1" type="CharacterBody2D" parent="." unique_id=153745980]
 script = ExtResource("1_tmdyv")
 metadata/_edit_group_ = true
 
+[node name="player_1_tag_area" type="Area2D" parent="player_1" unique_id=1953150918]
+
+[node name="player_2_tag_shape" type="CollisionShape2D" parent="player_1/player_1_tag_area" unique_id=309236547]
+shape = SubResource("CapsuleShape2D_mv22w")
+
 [node name="collision_p1" type="CollisionShape2D" parent="player_1" unique_id=594840841]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_tmdyv")
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_w7s1m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player_1" unique_id=319075457]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_et7db")
-frame_progress = 0.51644504
+frame = 3
+frame_progress = 0.73678166
 
-[node name="player_2" type="CharacterBody2D" parent="." unique_id=735358170]
+[node name="INDICATOR" parent="player_1" unique_id=1933231571 instance=ExtResource("4_w7s1m")]
+
+[node name="player_2" type="CharacterBody2D" parent="." unique_id=735358170 groups=["player_1_in", "player_1_tagged", "player_2_in", "player_2_tagged"]]
 position = Vector2(90, 0)
 script = ExtResource("3_mv22w")
 metadata/_edit_group_ = true
 
+[node name="player_2_tag_area" type="Area2D" parent="player_2" unique_id=1865784319]
+
+[node name="player_2_tag_shape" type="CollisionShape2D" parent="player_2/player_2_tag_area" unique_id=516215982]
+shape = SubResource("CapsuleShape2D_ief1t")
+
 [node name="collision_p2" type="CollisionShape2D" parent="player_2" unique_id=1091120736]
 physics_interpolation_mode = 2
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_tmdyv")
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_1xuw1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player_2" unique_id=1644013872]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_et7db")
 frame_progress = 0.51644504
+
+[node name="INDICATOR2" parent="player_2" unique_id=970931867 instance=ExtResource("4_w7s1m")]
+
+[connection signal="body_entered" from="player_1/player_1_tag_area" to="player_2" method="_on_player_1_tag_area_body_entered"]
+[connection signal="body_entered" from="player_2/player_2_tag_area" to="player_1" method="_on_player_2_tag_area_body_entered"]

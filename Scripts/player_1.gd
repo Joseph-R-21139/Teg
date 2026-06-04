@@ -23,3 +23,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+	
+func _ready() -> void:
+			if TaggingScript.player_1_in == true:
+				$indicator_sprite.visible = false
+			else:
+				$indicator_sprite.visible = true
