@@ -6,7 +6,10 @@ const JUMP_VELOCITY = -1150
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	$AnimatedSprite2D_1.play("idle")
+	$"../player_2/AnimatedSprite2D_2".play("idle")
+	player_1_tag_indicator()
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta *2.6
 
@@ -24,10 +27,17 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func player_1_tag_indicator():
+	if TaggingScript.player_1_in == false:
+		$INDICATOR.hide()
+	else:
+		$INDICATOR.show()
+
+
+
 
 	
-func _ready() -> void:
-			if TaggingScript.player_1_in == true:
-				$indicator_sprite.visible = false
-			else:
-				$indicator_sprite.visible = true
+
+
+func _on_player_1_tag_area_area_entered(area: Area2D) -> void:
+	TaggingScript.player_1_in = !TaggingScript.player_1_in

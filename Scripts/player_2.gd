@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -1150
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	player_2_tag_indicator()
 	if not is_on_floor():
 		velocity += get_gravity() * delta *2.6
 
@@ -25,14 +25,12 @@ func _physics_process(delta: float) -> void:
 
 
 
-	
-func _indicator_player_2_visability():
-	if TaggingScript.player_2_in == true:
-		$INDICATOR2.modulate.a = 0.0
+func player_2_tag_indicator():
+	if TaggingScript.player_1_in == true:
+		$INDICATOR2.hide()
 	else:
-		$INDICATOR2.modulate.a = 1.0
-		
-		
+		$INDICATOR2.show()
+
 	
 	
 	

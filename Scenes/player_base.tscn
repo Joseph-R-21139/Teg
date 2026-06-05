@@ -86,7 +86,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_s4j3i")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 10.0
 }]
 
@@ -112,11 +112,11 @@ shape = SubResource("CapsuleShape2D_mv22w")
 position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_w7s1m")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player_1" unique_id=319075457]
+[node name="AnimatedSprite2D_1" type="AnimatedSprite2D" parent="player_1" unique_id=319075457]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_et7db")
-frame = 3
-frame_progress = 0.73678166
+animation = &"idle"
+frame_progress = 0.7219538
 
 [node name="INDICATOR" parent="player_1" unique_id=1933231571 instance=ExtResource("4_w7s1m")]
 
@@ -135,12 +135,13 @@ physics_interpolation_mode = 2
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_1xuw1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player_2" unique_id=1644013872]
+[node name="AnimatedSprite2D_2" type="AnimatedSprite2D" parent="player_2" unique_id=1644013872]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_et7db")
-frame_progress = 0.51644504
+animation = &"idle"
 
 [node name="INDICATOR2" parent="player_2" unique_id=970931867 instance=ExtResource("4_w7s1m")]
 
-[connection signal="body_entered" from="player_1/player_1_tag_area" to="player_2" method="_on_player_1_tag_area_body_entered"]
+[connection signal="area_entered" from="player_1/player_1_tag_area" to="player_1" method="_on_player_1_tag_area_area_entered"]
+[connection signal="body_entered" from="player_1/player_1_tag_area" to="player_1" method="_on_player_1_tag_area_body_entered"]
 [connection signal="body_entered" from="player_2/player_2_tag_area" to="player_1" method="_on_player_2_tag_area_body_entered"]

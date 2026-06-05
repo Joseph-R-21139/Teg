@@ -17,9 +17,9 @@ offset_bottom = 567.0
 text = "Quit game"
 
 [node name="Options_button" type="Button" parent="BUTTONS" unique_id=1711891245]
-offset_left = 422.0
+offset_left = 419.0
 offset_top = 381.0
-offset_right = 751.0
+offset_right = 748.0
 offset_bottom = 453.0
 text = "Options"
 
