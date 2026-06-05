@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bcad47dwu11em"]
+
+[ext_resource type="Texture2D" uid="uid://bc36bm02un3er" path="res://Sprites/it_indicator.png" id="1_2k7kp"]
+
+[node name="INDICATOR" type="Node2D" unique_id=1933231571]
+
+[node name="indicator_sprite" type="Sprite2D" parent="." unique_id=1884517855]
+texture_filter = 1
+position = Vector2(0, -19)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2k7kp")

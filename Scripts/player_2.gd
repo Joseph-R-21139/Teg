@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED =750
 const JUMP_VELOCITY = -1150
 
@@ -25,5 +24,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_collision_p_2_child_entered_tree(node: Node) -> void:
-	pass # Replace with function body.
+
+	
+func _indicator_player_2_visability():
+	if TaggingScript.player_2_in == true:
+		$INDICATOR2.modulate.a = 0.0
+	else:
+		$INDICATOR2.modulate.a = 1.0
+		
+		
+	
+	
+	
+	
+	
