@@ -1,9 +1,42 @@
 extends Camera2D
 """
-func _physics_process(delta: float) -> void:
-	position = (get_parent().get_node(player_1).position + get_parent().get_node(player_2)/2
-	if (get_parent().getnode(player_1).position.x - get_parent().get_node(player_2).position.x > 500):
-		zoom.x += (1.5 - zoom.x)/10
-		zoom.y += (1.5 - zoom.y)/10
+@export var maxZoom = 5.0
+@export var minZoom = 0.5
+
+func _process(_delta: float) -> void:
+	_refresh_camera()
+	
+func _refresh_camera():
+	global_position = _calculate_position()
+	
+	zoom = _calculate_zoom()
+	
+func _calculate_position():
+	var players = get_tree().get_nodes_in_group("player")
+	var sumPosition = Vector2(0,0)
+
+	for player in players:
+		sumPosition += player.global_position
 		
+	return sumPosition / players.size()
+
+func _calculate_zoom():
+	var maxDistance = _get_max_player_distance()
+
+	var zoomLevel = clamp(maxZoom - (maxDistance / 150), minZoom, maxZoom)
+	
+	return Vector2(zoomLevel, zoomLevel)
+
+func _get_max_player_distance():
+	var maxDistance = 0.0
+	var players = get_tree().get_nodes_in_group("player")
+	
+	for player in players:
+		for controlPlayer in players:
+			var distance = player.global_position.distance_to(controlPlayer.global_position)
+			
+			if distance > maxDistance:
+				maxDistance = distance
+				
+	return maxDistance
 """

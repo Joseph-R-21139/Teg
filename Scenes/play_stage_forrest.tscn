@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cxhrboc6mhiqu"]
 
-[ext_resource type="Script" uid="uid://ccu8r7625rxbu" path="res://Scenes/play_stage_forrest.gd" id="1_8vsmm"]
+[ext_resource type="Script" uid="uid://ccu8r7625rxbu" path="res://Scripts/play_stage_forrest.gd" id="1_8vsmm"]
 [ext_resource type="Texture2D" uid="uid://dk802yk26yor4" path="res://Sprites/Forest Tileset.png" id="1_74ui5"]
 [ext_resource type="PackedScene" uid="uid://dro33ap1yje6k" path="res://Scenes/player_base.tscn" id="2_koq2v"]
 [ext_resource type="Script" uid="uid://ce1dmd4iiexfl" path="res://Scripts/camera_2d.gd" id="3_rx7qk"]
@@ -631,15 +631,20 @@ tile_set = SubResource("TileSet_rx7qk")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1093406956]
 position = Vector2(573, 328)
-zoom = Vector2(0.5, 0.5)
-limit_left = -946
-limit_top = -684
-limit_right = 2371
-limit_bottom = 1163
+skew = -0.51138145
+zoom = Vector2(0.3, 0.3)
+limit_left = -951
+limit_top = -679
+limit_right = 2360
+limit_bottom = 1168
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+drag_left_margin = 1.0
+drag_top_margin = 1.0
+drag_right_margin = 1.0
+drag_bottom_margin = 1.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("3_rx7qk")
@@ -648,6 +653,17 @@ script = ExtResource("3_rx7qk")
 position = Vector2(439, 256)
 scale = Vector2(3, 3)
 
-[node name="Timer" type="Timer" parent="." unique_id=348690523]
+[node name="Label" type="Label" parent="." unique_id=1885707565]
+offset_top = -584.0
+offset_right = 1163.0
+offset_bottom = -446.0
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="end_timer" type="Timer" parent="." unique_id=348690523]
+process_callback = 0
+wait_time = 90.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="end_timer" to="." method="_on_timer_timeout"]
