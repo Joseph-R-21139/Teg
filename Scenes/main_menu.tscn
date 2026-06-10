@@ -1,33 +1,52 @@
 [gd_scene format=3 uid="uid://bg57gq80v7cf8"]
 
-[ext_resource type="Script" uid="uid://c4e8ljwde8e1s" path="res://Scripts/buttons.gd" id="1_28flt"]
+[ext_resource type="Script" uid="uid://c4e8ljwde8e1s" path="res://Scripts/main_menu_buttons.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://cv23ctgyevp55" path="res://Sprites/menu_bg.png" id="1_48xlc"]
+
+[sub_resource type="Gradient" id="Gradient_1ehe0"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ce3w2"]
+gradient = SubResource("Gradient_1ehe0")
 
 [node name="main_menu" type="Node2D" unique_id=745996633]
 
 [node name="VISUAL_ASSETES" type="Node2D" parent="." unique_id=1993182872]
 
+[node name="Menu_background" type="Sprite2D" parent="VISUAL_ASSETES" unique_id=173130991]
+texture_filter = 1
+position = Vector2(828, 324.00003)
+scale = Vector2(10.1, 10.1)
+texture = ExtResource("1_48xlc")
+
+[node name="backdrop" type="Sprite2D" parent="VISUAL_ASSETES" unique_id=1929539277]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(576.5, 325)
+scale = Vector2(18.015625, 10.0625)
+texture = SubResource("GradientTexture2D_ce3w2")
+
 [node name="BUTTONS" type="Node2D" parent="." unique_id=954126762]
 script = ExtResource("1_28flt")
 
 [node name="Exit_button" type="Button" parent="BUTTONS" unique_id=430370525]
-offset_left = 422.0
-offset_top = 494.0
-offset_right = 749.0
-offset_bottom = 567.0
+offset_left = 142.0
+offset_top = 427.0
+offset_right = 469.0
+offset_bottom = 500.0
 text = "Quit game"
 
 [node name="Options_button" type="Button" parent="BUTTONS" unique_id=1711891245]
-offset_left = 419.0
-offset_top = 381.0
-offset_right = 748.0
-offset_bottom = 453.0
+offset_left = 139.0
+offset_top = 337.0
+offset_right = 468.0
+offset_bottom = 409.0
 text = "Options"
 
 [node name="Play _button" type="Button" parent="BUTTONS" unique_id=2082914724]
-offset_left = 420.0
-offset_top = 284.0
-offset_right = 749.0
-offset_bottom = 356.0
+offset_left = 138.0
+offset_top = 245.0
+offset_right = 467.0
+offset_bottom = 317.0
 text = "Play game"
 
 [connection signal="pressed" from="BUTTONS/Exit_button" to="BUTTONS" method="_on_exit_button_pressed"]

@@ -1,12 +1,24 @@
 [gd_scene format=3 uid="uid://1qu2xgpgtat2"]
 
+[ext_resource type="Script" uid="uid://flvth1wppcq2" path="res://Scripts/options_buttons.gd" id="1_plplt"]
+
 [node name="options_menu" type="Node2D" unique_id=1197686813]
 
 [node name="BUTTONS" type="Node2D" parent="." unique_id=255861830]
+script = ExtResource("1_plplt")
 
 [node name="Button" type="Button" parent="BUTTONS" unique_id=137815612]
 offset_left = 514.0
 offset_top = 196.0
 offset_right = 684.0
 offset_bottom = 370.0
-text = "you die"
+text = "Coming soon"
+
+[node name="back_to_main" type="Button" parent="BUTTONS" unique_id=303818921]
+offset_left = 475.0
+offset_top = 448.0
+offset_right = 735.0
+offset_bottom = 522.0
+text = "Back to main menu"
+
+[connection signal="pressed" from="BUTTONS/back_to_main" to="BUTTONS" method="_on_back_to_main_pressed"]

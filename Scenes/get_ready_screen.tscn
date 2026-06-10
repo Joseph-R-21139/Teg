@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dc7mfhed4fudo"]
 
-[ext_resource type="Script" uid="uid://c4e8ljwde8e1s" path="res://Scripts/buttons.gd" id="1_xjky5"]
+[ext_resource type="Script" uid="uid://c4e8ljwde8e1s" path="res://Scripts/main_menu_buttons.gd" id="1_xjky5"]
 
 [node name="get_ready_screen" type="Node2D" unique_id=6024457]
 
@@ -8,10 +8,18 @@
 script = ExtResource("1_xjky5")
 
 [node name="start_match" type="Button" parent="BUTTONS" unique_id=1233750812]
-offset_left = 448.0
-offset_top = 535.0
-offset_right = 791.0
-offset_bottom = 573.0
+offset_left = 444.0
+offset_top = 482.0
+offset_right = 787.0
+offset_bottom = 520.0
 text = "Start Match"
 
+[node name="back_to_main" type="Button" parent="BUTTONS" unique_id=2006425807]
+offset_left = 25.0
+offset_top = 570.0
+offset_right = 265.0
+offset_bottom = 618.0
+text = "Back to Main Menu"
+
 [connection signal="pressed" from="BUTTONS/start_match" to="BUTTONS" method="_on_start_match_pressed"]
+[connection signal="pressed" from="BUTTONS/back_to_main" to="BUTTONS" method="_on_back_to_main_pressed"]
