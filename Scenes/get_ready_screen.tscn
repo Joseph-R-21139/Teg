@@ -5,13 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://bynf58bh1onfo" path="res://Sprites/info_1.png" id="2_joehx"]
 [ext_resource type="Texture2D" uid="uid://b8al27ri83sg4" path="res://Sprites/info_2.png" id="3_m3cuy"]
 [ext_resource type="Texture2D" uid="uid://r0kycwwnbkkh" path="res://Sprites/info_3.png" id="4_fg0kq"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://bp8hrhqt3dr2x" path="res://Sprites/Egg_Idle.png" id="5_m3cuy"]
+=======
+>>>>>>> 44612dcf86f8c34fc034f1f3127be4b98c4be7d9
 
 [sub_resource type="Gradient" id="Gradient_rpnty"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_uvk7i"]
 gradient = SubResource("Gradient_rpnty")
 
+<<<<<<< HEAD
 [sub_resource type="AtlasTexture" id="AtlasTexture_fg0kq"]
 atlas = ExtResource("5_m3cuy")
 region = Rect2(0, 0, 64, 64)
@@ -89,6 +93,9 @@ animations = [{
 "name": &"display_idle",
 "speed": 10.0
 }]
+=======
+[sub_resource type="SpriteFrames" id="SpriteFrames_joehx"]
+>>>>>>> 44612dcf86f8c34fc034f1f3127be4b98c4be7d9
 
 [node name="get_ready_screen" type="Node2D" unique_id=6024457]
 script = ExtResource("1_fg0kq")
@@ -137,6 +144,7 @@ position = Vector2(577, 323.75)
 scale = Vector2(4.5, 648.5)
 texture = SubResource("GradientTexture1D_uvk7i")
 
+<<<<<<< HEAD
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VISUALS" unique_id=388442587]
 texture_filter = 1
 position = Vector2(574, 183)
@@ -161,6 +169,10 @@ offset_bottom = 238.0
 text = "Player 2 Controles:
 ↑ (Up arrow Key) = Jump
 ←→ (Left and Right arrow Key) = Side to Side"
+=======
+[node name="eggs" type="AnimatedSprite2D" parent="VISUALS" unique_id=440184753]
+sprite_frames = SubResource("SpriteFrames_joehx")
+>>>>>>> 44612dcf86f8c34fc034f1f3127be4b98c4be7d9
 
 [connection signal="pressed" from="BUTTONS/start_match" to="BUTTONS" method="_on_start_match_pressed"]
 [connection signal="pressed" from="BUTTONS/back_to_main" to="BUTTONS" method="_on_back_to_main_pressed"]
