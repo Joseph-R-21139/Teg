@@ -1,18 +1,97 @@
 [gd_scene format=3 uid="uid://dc7mfhed4fudo"]
 
+[ext_resource type="Script" uid="uid://c2solwk62uy30" path="res://Scenes/get_ready_screen.gd" id="1_fg0kq"]
 [ext_resource type="Script" uid="uid://c4e8ljwde8e1s" path="res://Scripts/main_menu_buttons.gd" id="1_xjky5"]
 [ext_resource type="Texture2D" uid="uid://bynf58bh1onfo" path="res://Sprites/info_1.png" id="2_joehx"]
 [ext_resource type="Texture2D" uid="uid://b8al27ri83sg4" path="res://Sprites/info_2.png" id="3_m3cuy"]
 [ext_resource type="Texture2D" uid="uid://r0kycwwnbkkh" path="res://Sprites/info_3.png" id="4_fg0kq"]
+[ext_resource type="Texture2D" uid="uid://bp8hrhqt3dr2x" path="res://Sprites/Egg_Idle.png" id="5_m3cuy"]
 
 [sub_resource type="Gradient" id="Gradient_rpnty"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_uvk7i"]
 gradient = SubResource("Gradient_rpnty")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_joehx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg0kq"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpnty"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvk7i"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvd8t"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt7ur"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms45a"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iitf6"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eoi3"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj776"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub0gj"]
+atlas = ExtResource("5_m3cuy")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c8chs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg0kq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpnty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvk7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvd8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt7ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms45a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eoi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj776")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub0gj")
+}],
+"loop": true,
+"name": &"display_idle",
+"speed": 10.0
+}]
 
 [node name="get_ready_screen" type="Node2D" unique_id=6024457]
+script = ExtResource("1_fg0kq")
 
 [node name="BUTTONS" type="Node2D" parent="." unique_id=866899527]
 script = ExtResource("1_xjky5")
@@ -58,8 +137,30 @@ position = Vector2(577, 323.75)
 scale = Vector2(4.5, 648.5)
 texture = SubResource("GradientTexture1D_uvk7i")
 
-[node name="eggs" type="AnimatedSprite2D" parent="VISUALS" unique_id=440184753]
-sprite_frames = SubResource("SpriteFrames_joehx")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VISUALS" unique_id=388442587]
+texture_filter = 1
+position = Vector2(574, 183)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_c8chs")
+animation = &"display_idle"
+
+[node name="Label" type="Label" parent="VISUALS" unique_id=474996906]
+offset_left = 335.0
+offset_top = 124.0
+offset_right = 487.0
+offset_bottom = 241.0
+text = "Player 1 Controles:
+W  =  Jump
+A/D = Side to Side"
+
+[node name="Label2" type="Label" parent="VISUALS" unique_id=1035543411]
+offset_left = 691.0
+offset_top = 121.0
+offset_right = 945.0
+offset_bottom = 238.0
+text = "Player 2 Controles:
+↑ (Up arrow Key) = Jump
+←→ (Left and Right arrow Key) = Side to Side"
 
 [connection signal="pressed" from="BUTTONS/start_match" to="BUTTONS" method="_on_start_match_pressed"]
 [connection signal="pressed" from="BUTTONS/back_to_main" to="BUTTONS" method="_on_back_to_main_pressed"]
