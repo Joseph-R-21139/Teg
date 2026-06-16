@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://bfmnk7lf25a6m"]
 
 [ext_resource type="Script" uid="uid://cnfbuobqqvpas" path="res://Scripts/end_screen.gd" id="1_f2mtv"]
+[ext_resource type="Texture2D" uid="uid://r0kycwwnbkkh" path="res://Sprites/info_3.png" id="2_1gwaw"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f2mtv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bhpww"]
 
 [node name="end_screen" type="Node2D" unique_id=1987686417]
 script = ExtResource("1_f2mtv")
 
 [node name="replay_button" type="Button" parent="." unique_id=2129688094]
+z_index = 1
 offset_left = 481.0
 offset_top = 328.0
 offset_right = 655.0
@@ -14,6 +19,7 @@ offset_bottom = 424.0
 text = "New Match"
 
 [node name="Label" type="Label" parent="." unique_id=1800392082]
+z_index = 3
 offset_left = 479.0
 offset_top = 127.0
 offset_right = 641.0
@@ -22,5 +28,23 @@ theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="background" type="Sprite2D" parent="." unique_id=1786766669]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(583, 321.25)
+scale = Vector2(1190, 683.5)
+texture = SubResource("PlaceholderTexture2D_f2mtv")
+
+[node name="winning_pose" type="Sprite2D" parent="." unique_id=52185983]
+texture_filter = 1
+position = Vector2(856, 313)
+scale = Vector2(9, 9)
+texture = ExtResource("2_1gwaw")
+
+[node name="cover_cropper" type="Sprite2D" parent="." unique_id=1757337346]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(823.5, 151.5)
+scale = Vector2(604.99994, 235)
+texture = SubResource("PlaceholderTexture2D_bhpww")
 
 [connection signal="pressed" from="replay_button" to="." method="_on_replay_button_pressed"]

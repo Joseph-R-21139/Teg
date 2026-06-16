@@ -17,7 +17,7 @@ config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
-TaggingScript="*uid://iph3wbgp52vd"
+Global="*uid://b401hyemku8tn"
 
 [global_group]
 

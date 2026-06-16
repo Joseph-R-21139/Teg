@@ -28,27 +28,30 @@ texture = SubResource("GradientTexture2D_ce3w2")
 [node name="BUTTONS" type="Node2D" parent="." unique_id=954126762]
 script = ExtResource("1_28flt")
 
-[node name="Exit_button" type="Button" parent="BUTTONS" unique_id=430370525]
+[node name="exit_button" type="Button" parent="BUTTONS" unique_id=430370525]
+texture_filter = 1
 offset_left = 142.0
 offset_top = 427.0
 offset_right = 469.0
 offset_bottom = 500.0
 text = "Quit game"
 
-[node name="Options_button" type="Button" parent="BUTTONS" unique_id=1711891245]
+[node name="options_button" type="Button" parent="BUTTONS" unique_id=1711891245]
+texture_filter = 1
 offset_left = 139.0
 offset_top = 337.0
 offset_right = 468.0
 offset_bottom = 409.0
 text = "Options"
 
-[node name="Play _button" type="Button" parent="BUTTONS" unique_id=2082914724]
+[node name="play_button" type="Button" parent="BUTTONS" unique_id=2082914724]
+texture_filter = 1
 offset_left = 138.0
 offset_top = 245.0
 offset_right = 467.0
 offset_bottom = 317.0
 text = "Play game"
 
-[connection signal="pressed" from="BUTTONS/Exit_button" to="BUTTONS" method="_on_exit_button_pressed"]
-[connection signal="pressed" from="BUTTONS/Options_button" to="BUTTONS" method="_on_options_button_pressed"]
-[connection signal="pressed" from="BUTTONS/Play _button" to="BUTTONS" method="_on_play__button_pressed"]
+[connection signal="pressed" from="BUTTONS/exit_button" to="BUTTONS" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="BUTTONS/options_button" to="BUTTONS" method="_on_options_button_pressed"]
+[connection signal="pressed" from="BUTTONS/play_button" to="BUTTONS" method="_on_play_button_pressed"]

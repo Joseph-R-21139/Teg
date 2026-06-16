@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func player_1_tag_indicator():
-	if TaggingScript.player_1_in == false:
+	if Global.player_1_in == false:
 		$INDICATOR.hide()
 	else:
 		$INDICATOR.show()
@@ -54,5 +54,7 @@ func double_jump():
 
 
 
+@warning_ignore("unused_parameter")
 func _on_player_1_tag_area_area_entered(area: Area2D) -> void:
-	TaggingScript.player_1_in = !TaggingScript.player_1_in
+	
+	Global.player_1_in = !Global.player_1_in

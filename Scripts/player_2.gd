@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 
 
 func player_2_tag_indicator():
-	if TaggingScript.player_1_in == true:
+	if Global.player_1_in == true:
 		$INDICATOR2.hide()
 	else:
 		$INDICATOR2.show()

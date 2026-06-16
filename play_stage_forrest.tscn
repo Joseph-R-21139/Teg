@@ -2,4 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://cxhrboc6mhiqu" path="res://Scenes/play_stage_forrest.tscn" id="1_qkmkd"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qkmkd"]
+
 [node name="play_stage_forrest" unique_id=1847711376 instance=ExtResource("1_qkmkd")]
+
+[node name="background" type="Sprite2D" parent="VISUAL_ASSETS" parent_id_path=PackedInt32Array(1534038640) index="0" unique_id=566510488]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(702.76843, 253.96457)
+scale = Vector2(-3942.024, -2256.2676)
+texture = SubResource("PlaceholderTexture2D_qkmkd")

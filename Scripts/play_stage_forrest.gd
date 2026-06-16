@@ -7,11 +7,13 @@ func _ready():
 	timer.start()
 
 func time_left():
+	@warning_ignore("shadowed_variable")
 	var time_left = timer.time_left
 	var minute = floor(time_left/60)
 	var second = int(time_left) % 60
 	return [minute, second]
 
+@warning_ignore("unused_parameter")
 func _process(delta):
 	lable.text = "%02d:%02d" % time_left()
 

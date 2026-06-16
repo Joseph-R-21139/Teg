@@ -11,7 +11,5 @@ func _on_options_button_pressed() -> void:
 
 
 
-
-
-func _on_play__button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/get_ready_screen.tscn")
+func _on_play_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/get_ready_scene.tscn")

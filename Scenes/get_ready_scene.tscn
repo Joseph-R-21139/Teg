@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://brh5jox1diwha"]
+
+[ext_resource type="Script" uid="uid://otxgyqma0qw2" path="res://Scripts/get_ready_scene.gd" id="1_76ytl"]
+[ext_resource type="Texture2D" uid="uid://bynf58bh1onfo" path="res://Sprites/info_1.png" id="2_a2iks"]
+[ext_resource type="Texture2D" uid="uid://b8al27ri83sg4" path="res://Sprites/info_2.png" id="3_b0j6g"]
+[ext_resource type="Texture2D" uid="uid://r0kycwwnbkkh" path="res://Sprites/info_3.png" id="4_shy0m"]
+[ext_resource type="Texture2D" uid="uid://bp8hrhqt3dr2x" path="res://Sprites/Egg_Idle.png" id="5_b0j6g"]
+
+[sub_resource type="Gradient" id="Gradient_76ytl"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ivi5i"]
+gradient = SubResource("Gradient_76ytl")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shy0m"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lge8k"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybjtj"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkvrg"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s5nn"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dnq3"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eonxh"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5spi"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvieu"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7254"]
+atlas = ExtResource("5_b0j6g")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x1ty0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shy0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lge8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybjtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkvrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s5nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dnq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eonxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5spi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvieu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7254")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="FontVariation" id="FontVariation_qf6hw"]
+
+[node name="get_ready_scene" type="Node2D" unique_id=208496502]
+script = ExtResource("1_76ytl")
+
+[node name="VISUAL ASSETS" type="Node2D" parent="." unique_id=884557241]
+
+[node name="background" type="Sprite2D" parent="VISUAL ASSETS" unique_id=1278341214]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(577.5, 326.50003)
+scale = Vector2(4.722656, 705.00006)
+texture = SubResource("GradientTexture1D_ivi5i")
+
+[node name="info_1" type="Sprite2D" parent="VISUAL ASSETS" unique_id=1041628772]
+texture_filter = 1
+position = Vector2(193, 456.00003)
+scale = Vector2(6, 6)
+texture = ExtResource("2_a2iks")
+
+[node name="info_2" type="Sprite2D" parent="VISUAL ASSETS" unique_id=624033182]
+texture_filter = 1
+position = Vector2(576, 456)
+scale = Vector2(6, 6)
+texture = ExtResource("3_b0j6g")
+
+[node name="info_3" type="Sprite2D" parent="VISUAL ASSETS" unique_id=1644742377]
+texture_filter = 1
+position = Vector2(960.00006, 456)
+scale = Vector2(6, 6)
+texture = ExtResource("4_shy0m")
+
+[node name="egg" type="AnimatedSprite2D" parent="VISUAL ASSETS" unique_id=2057407777]
+texture_filter = 1
+position = Vector2(558, 156)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_x1ty0")
+animation = &"idle"
+frame_progress = 0.3712862
+
+[node name="p1_controles" type="Label" parent="VISUAL ASSETS" unique_id=1321184088]
+texture_filter = 1
+offset_left = 158.0
+offset_top = 99.0
+offset_right = 400.0
+offset_bottom = 189.0
+theme_type_variation = &"HeaderSmall"
+text = "Player 1 controles
+W = Jump
+A/D = Left and Right"
+
+[node name="p2_controles" type="Label" parent="VISUAL ASSETS" unique_id=1389087365]
+texture_filter = 1
+offset_left = 730.0
+offset_top = 103.0
+offset_right = 922.0
+offset_bottom = 193.0
+theme_type_variation = &"HeaderSmall"
+theme_override_fonts/font = SubResource("FontVariation_qf6hw")
+text = "Pleyer 2 controles
+↑ = Jump
+←→ = Left and Right"
+
+[node name="BUTTONS" type="Node2D" parent="." unique_id=934728582]
+
+[node name="back_to_main_menu" type="Button" parent="BUTTONS" unique_id=1664809938]
+texture_filter = 1
+offset_right = 264.0
+offset_bottom = 72.0
+text = "Back to Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="start_game_button" type="Button" parent="BUTTONS" unique_id=384349881]
+modulate = Color(0.84, 0.84, 0.84, 1)
+texture_filter = 1
+offset_left = 488.0
+offset_top = 84.0
+offset_right = 561.0
+offset_bottom = 156.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.88, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.7916667, 0, 1)
+theme_override_colors/font_hover_color = Color(0.4, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Start 
+Game"
+flat = true
+autowrap_trim_flags = 0
+
+[connection signal="pressed" from="BUTTONS/back_to_main_menu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="pressed" from="BUTTONS/start_game_button" to="." method="_on_start_game_button_pressed"]
