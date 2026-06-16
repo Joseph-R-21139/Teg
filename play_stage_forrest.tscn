@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ba3p60m1im4bn"]
+
+[ext_resource type="PackedScene" uid="uid://cxhrboc6mhiqu" path="res://Scenes/play_stage_forrest.tscn" id="1_qkmkd"]
+
+[node name="play_stage_forrest" unique_id=1847711376 instance=ExtResource("1_qkmkd")]
