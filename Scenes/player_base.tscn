@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dg52xwg02kwpe" path="res://Scripts/player_1.gd" id="1_tmdyv"]
 [ext_resource type="Script" uid="uid://2hr4wm52v6l3" path="res://Scripts/player_2.gd" id="3_mv22w"]
 [ext_resource type="PackedScene" uid="uid://bcad47dwu11em" path="res://Scenes/indicator.tscn" id="4_w7s1m"]
+[ext_resource type="AudioStream" uid="uid://wpti8r85at31" path="res://Sounds/freesound_community-pop-39222.mp3" id="5_ief1t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mv22w"]
 radius = 12.0
@@ -141,6 +142,9 @@ sprite_frames = SubResource("SpriteFrames_et7db")
 animation = &"idle"
 
 [node name="INDICATOR2" parent="player_2" unique_id=970931867 instance=ExtResource("4_w7s1m")]
+
+[node name="tag_sound" type="AudioStreamPlayer2D" parent="." unique_id=703117991]
+stream = ExtResource("5_ief1t")
 
 [connection signal="area_entered" from="player_1/player_1_tag_area" to="player_1" method="_on_player_1_tag_area_area_entered"]
 [connection signal="body_entered" from="player_1/player_1_tag_area" to="player_1" method="_on_player_1_tag_area_body_entered"]
