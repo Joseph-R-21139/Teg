@@ -9,6 +9,7 @@
 gradient = SubResource("Gradient_1ehe0")
 
 [node name="main_menu" type="Node2D" unique_id=745996633]
+position = Vector2(2, 0)
 
 [node name="VISUAL_ASSETES" type="Node2D" parent="." unique_id=1993182872]
 
@@ -21,8 +22,8 @@ texture = ExtResource("1_48xlc")
 [node name="backdrop" type="Sprite2D" parent="VISUAL_ASSETES" unique_id=1929539277]
 self_modulate = Color(0, 0, 0, 1)
 z_index = -1
-position = Vector2(576.5, 325)
-scale = Vector2(18.015625, 10.0625)
+position = Vector2(574.50006, 326)
+scale = Vector2(18.296875, 10.499999)
 texture = SubResource("GradientTexture2D_ce3w2")
 
 [node name="BUTTONS" type="Node2D" parent="." unique_id=954126762]

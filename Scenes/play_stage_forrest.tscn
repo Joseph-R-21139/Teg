@@ -629,9 +629,15 @@ tile_set = SubResource("TileSet_rx7qk")
 
 [node name="VISUAL_ASSETS" type="Node2D" parent="." unique_id=1534038640]
 
+[node name="player_base" parent="." unique_id=1884741688 instance=ExtResource("2_koq2v")]
+position = Vector2(439, 256)
+scale = Vector2(3, 3)
+
+[node name="TIMERS" type="Node2D" parent="." unique_id=1277014750]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1093406956]
 position = Vector2(573, 328)
-skew = -0.51138145
+skew = -0.5113815
 zoom = Vector2(0.3, 0.3)
 limit_left = -951
 limit_top = -679
@@ -648,10 +654,6 @@ drag_bottom_margin = 1.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("3_rx7qk")
-
-[node name="player_base" parent="." unique_id=1884741688 instance=ExtResource("2_koq2v")]
-position = Vector2(439, 256)
-scale = Vector2(3, 3)
 
 [node name="Label" type="Label" parent="." unique_id=1885707565]
 offset_top = -584.0

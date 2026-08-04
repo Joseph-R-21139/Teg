@@ -36,7 +36,11 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("player_1_left", "player_1_right")
 	if direction:
-		velocity.x = direction * SPEED
+		if Global.player_1_in:
+			velocity.x = direction * SPEED * 1.15
+		else:
+			velocity.x = direction * SPEED
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
