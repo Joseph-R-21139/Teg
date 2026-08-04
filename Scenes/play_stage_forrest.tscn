@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dk802yk26yor4" path="res://Sprites/Forest Tileset.png" id="1_74ui5"]
 [ext_resource type="PackedScene" uid="uid://dro33ap1yje6k" path="res://Scenes/player_base.tscn" id="2_koq2v"]
 [ext_resource type="Script" uid="uid://ce1dmd4iiexfl" path="res://Scripts/camera_2d.gd" id="3_rx7qk"]
+[ext_resource type="Script" uid="uid://daxaanjl2v2rf" path="res://Scenes/start_timer.gd" id="4_1ji7x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_koq2v"]
 texture = ExtResource("1_74ui5")
@@ -635,6 +636,12 @@ scale = Vector2(3, 3)
 
 [node name="TIMERS" type="Node2D" parent="." unique_id=1277014750]
 
+[node name="start_timer" type="Timer" parent="TIMERS" unique_id=684966551]
+wait_time = 3.0
+one_shot = true
+autostart = true
+script = ExtResource("4_1ji7x")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1093406956]
 position = Vector2(573, 328)
 skew = -0.5113815
@@ -668,4 +675,5 @@ wait_time = 90.0
 one_shot = true
 autostart = true
 
+[connection signal="timeout" from="TIMERS/start_timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="end_timer" to="." method="_on_timer_timeout"]

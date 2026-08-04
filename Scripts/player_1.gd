@@ -63,3 +63,4 @@ func _on_player_1_tag_area_area_entered(area: Area2D) -> void:
 	
 	Global.player_1_in = !Global.player_1_in
 	$"../tag_sound".play()
+	
