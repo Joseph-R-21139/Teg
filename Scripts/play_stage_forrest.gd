@@ -4,7 +4,9 @@ extends Node2D
 @onready var timer = $end_timer
 
 func _ready():
-	timer.start()
+	$end_timer.start()
+	$TIMERS/start_timer.start()
+	$VISUAL_ASSETS/AnimationPlayer.play("start_animation")
 
 func time_left():
 	@warning_ignore("shadowed_variable")
@@ -22,4 +24,4 @@ func _on_timer_timeout() -> void:
 
 
 func _on_start_timer_timeout() -> void:
-		print("time")
+	$VISUAL_ASSETS/countdown_animation.hide()

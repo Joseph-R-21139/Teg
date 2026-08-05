@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://ccu8r7625rxbu" path="res://Scripts/play_stage_forrest.gd" id="1_8vsmm"]
 [ext_resource type="Texture2D" uid="uid://dk802yk26yor4" path="res://Sprites/Forest Tileset.png" id="1_74ui5"]
 [ext_resource type="PackedScene" uid="uid://dro33ap1yje6k" path="res://Scenes/player_base.tscn" id="2_koq2v"]
+[ext_resource type="Texture2D" uid="uid://3w1xfbw3ifk0" path="res://Scripts/new_joseph_sprite.png" id="3_do1k0"]
 [ext_resource type="Script" uid="uid://ce1dmd4iiexfl" path="res://Scripts/camera_2d.gd" id="3_rx7qk"]
-[ext_resource type="Script" uid="uid://daxaanjl2v2rf" path="res://Scenes/start_timer.gd" id="4_1ji7x"]
+[ext_resource type="Script" uid="uid://daxaanjl2v2rf" path="res://Scripts/start_timer.gd" id="4_1ji7x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_koq2v"]
 texture = ExtResource("1_74ui5")
@@ -617,6 +618,43 @@ texture = ExtResource("1_74ui5")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_koq2v")
 
+[sub_resource type="Animation" id="Animation_b178s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../VISUAL_ASSETS/countdown_animation:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v1t75"]
+resource_name = "start_animation"
+length = 4.266667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../VISUAL_ASSETS/countdown_animation:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ha53"]
+_data = {
+&"RESET": SubResource("Animation_b178s"),
+&"start_animation": SubResource("Animation_v1t75")
+}
+
 [node name="play_stage_forrest" type="Node2D" unique_id=1847711376]
 script = ExtResource("1_8vsmm")
 
@@ -630,6 +668,17 @@ tile_set = SubResource("TileSet_rx7qk")
 
 [node name="VISUAL_ASSETS" type="Node2D" parent="." unique_id=1534038640]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VISUAL_ASSETS" unique_id=1671893560]
+root_node = NodePath("../../TIMERS")
+libraries/ = SubResource("AnimationLibrary_2ha53")
+
+[node name="countdown_animation" type="Sprite2D" parent="VISUAL_ASSETS" unique_id=292582676]
+texture_filter = 1
+position = Vector2(611, 55)
+scale = Vector2(3.2285993, 3.4316404)
+texture = ExtResource("3_do1k0")
+hframes = 4
+
 [node name="player_base" parent="." unique_id=1884741688 instance=ExtResource("2_koq2v")]
 position = Vector2(439, 256)
 scale = Vector2(3, 3)
@@ -637,7 +686,7 @@ scale = Vector2(3, 3)
 [node name="TIMERS" type="Node2D" parent="." unique_id=1277014750]
 
 [node name="start_timer" type="Timer" parent="TIMERS" unique_id=684966551]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
 autostart = true
 script = ExtResource("4_1ji7x")
