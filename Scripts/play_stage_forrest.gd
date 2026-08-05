@@ -7,6 +7,8 @@ func _ready():
 	$end_timer.start()
 	$TIMERS/start_timer.start()
 	$VISUAL_ASSETS/AnimationPlayer.play("start_animation")
+	$TIMERS/wait_a_sec.start()
+	
 
 func time_left():
 	@warning_ignore("shadowed_variable")
@@ -25,3 +27,7 @@ func _on_timer_timeout() -> void:
 
 func _on_start_timer_timeout() -> void:
 	$VISUAL_ASSETS/countdown_animation.hide()
+
+
+func _on_wait_a_sec_timeout() -> void:
+	$VISUAL_ASSETS/AnimationPlayer/AudioStreamPlayer2D.play()
