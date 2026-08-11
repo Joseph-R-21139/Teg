@@ -4,7 +4,11 @@ extends Node2D
 @onready var timer = $end_timer
 
 func _ready():
-	timer.start()
+	$end_timer.start()
+	$TIMERS/start_timer.start()
+	$VISUAL_ASSETS/AnimationPlayer.play("start_animation")
+	$TIMERS/wait_a_sec.start()
+	
 
 func time_left():
 	@warning_ignore("shadowed_variable")
@@ -19,3 +23,11 @@ func _process(delta):
 
 func _on_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
+
+
+func _on_start_timer_timeout() -> void:
+	$VISUAL_ASSETS/countdown_animation.hide()
+
+
+func _on_wait_a_sec_timeout() -> void:
+	$VISUAL_ASSETS/AnimationPlayer/AudioStreamPlayer2D.play()
