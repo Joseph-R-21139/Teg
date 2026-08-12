@@ -1,24 +1,69 @@
 [gd_scene format=3 uid="uid://1qu2xgpgtat2"]
 
-[ext_resource type="Script" uid="uid://flvth1wppcq2" path="res://Scripts/options_buttons.gd" id="1_plplt"]
+[ext_resource type="Script" uid="uid://dmoj07baid3n3" path="res://Scripts/options_menu.gd" id="1_uj0ok"]
+
+[sub_resource type="GDScript" id="GDScript_plplt"]
+
+[sub_resource type="Gradient" id="Gradient_uj0ok"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l1wg4"]
+gradient = SubResource("Gradient_uj0ok")
 
 [node name="options_menu" type="Node2D" unique_id=1197686813]
+script = ExtResource("1_uj0ok")
 
 [node name="BUTTONS" type="Node2D" parent="." unique_id=255861830]
-script = ExtResource("1_plplt")
+script = SubResource("GDScript_plplt")
 
-[node name="Button" type="Button" parent="BUTTONS" unique_id=137815612]
-offset_left = 514.0
-offset_top = 196.0
-offset_right = 684.0
-offset_bottom = 370.0
-text = "Coming soon"
+[node name="back_to_main_menu" type="Button" parent="BUTTONS" unique_id=613822491]
+texture_filter = 1
+offset_right = 264.0
+offset_bottom = 72.0
+text = "Back to Main Menu"
+metadata/_edit_use_anchors_ = true
 
-[node name="back_to_main" type="Button" parent="BUTTONS" unique_id=303818921]
-offset_left = 475.0
-offset_top = 448.0
-offset_right = 735.0
-offset_bottom = 522.0
-text = "Back to main menu"
+[node name="SLIDERS" type="Node2D" parent="." unique_id=1015598971]
 
-[connection signal="pressed" from="BUTTONS/back_to_main" to="BUTTONS" method="_on_back_to_main_pressed"]
+[node name="master_volume" type="HSlider" parent="SLIDERS" unique_id=1345986510]
+offset_left = 386.0
+offset_top = 236.0
+offset_right = 786.391
+offset_bottom = 381.0
+max_value = 1.5
+step = 0.001
+value = 1.0
+
+[node name="music_vol" type="HSlider" parent="SLIDERS" unique_id=463161520]
+offset_left = 383.0
+offset_top = 412.0
+offset_right = 791.0
+offset_bottom = 478.0
+max_value = 1.5
+step = 0.001
+value = 1.0
+
+[node name="VISUALS" type="Node2D" parent="." unique_id=1665144294]
+
+[node name="background" type="Sprite2D" parent="VISUALS" unique_id=1730465502]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(579, 327)
+scale = Vector2(4.7265625, 673.5)
+texture = SubResource("GradientTexture1D_l1wg4")
+
+[node name="label_1" type="Label" parent="VISUALS" unique_id=1905583157]
+offset_left = 551.0
+offset_top = 249.0
+offset_right = 685.0
+offset_bottom = 283.0
+text = "SFX Volume"
+
+[node name="label_2" type="Label" parent="VISUALS" unique_id=2093231064]
+offset_left = 536.0
+offset_top = 399.0
+offset_right = 645.0
+offset_bottom = 422.0
+text = "Music Volume"
+
+[connection signal="pressed" from="BUTTONS/back_to_main_menu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="value_changed" from="SLIDERS/master_volume" to="." method="_on_master_volume_value_changed"]

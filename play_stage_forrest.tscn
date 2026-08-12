@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ba3p60m1im4bn"]
 
 [ext_resource type="PackedScene" uid="uid://cxhrboc6mhiqu" path="res://Scenes/play_stage_forrest.tscn" id="1_qkmkd"]
+[ext_resource type="AudioStream" uid="uid://ck412wiuhjf8m" path="res://Sounds/moodmode-retro-game-arcade-short-236130.mp3" id="2_auiqq"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qkmkd"]
 
@@ -12,3 +13,12 @@ z_index = -1
 position = Vector2(702.76843, 253.96457)
 scale = Vector2(-3942.024, -2256.2676)
 texture = SubResource("PlaceholderTexture2D_qkmkd")
+
+[node name="music_timer" type="Timer" parent="TIMERS" parent_id_path=PackedInt32Array(1277014750) index="2" unique_id=1703618766]
+wait_time = 5.0
+one_shot = true
+
+[node name="AudioStreamPlayer2D" parent="MUSIC" parent_id_path=PackedInt32Array(407130305) index="0" unique_id=1186834992]
+stream = ExtResource("2_auiqq")
+
+[connection signal="timeout" from="TIMERS/music_timer" to="." method="_on_music_timer_timeout"]

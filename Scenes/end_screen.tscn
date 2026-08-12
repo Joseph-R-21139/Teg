@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnfbuobqqvpas" path="res://Scripts/end_screen.gd" id="1_f2mtv"]
 [ext_resource type="Texture2D" uid="uid://r0kycwwnbkkh" path="res://Sprites/info_3.png" id="2_1gwaw"]
+[ext_resource type="AudioStream" uid="uid://dad2p45tv2keq" path="res://Sounds/gong-hit-large-gfx-sounds-1-1-00-06.mp3" id="3_bhpww"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f2mtv"]
 
@@ -17,17 +18,6 @@ offset_top = 328.0
 offset_right = 655.0
 offset_bottom = 424.0
 text = "New Match"
-
-[node name="Label" type="Label" parent="." unique_id=1800392082]
-z_index = 3
-offset_left = 479.0
-offset_top = 127.0
-offset_right = 641.0
-offset_bottom = 224.0
-theme_override_font_sizes/font_size = 64
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
 
 [node name="background" type="Sprite2D" parent="." unique_id=1786766669]
 modulate = Color(0, 0, 0, 1)
@@ -46,5 +36,22 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(823.5, 151.5)
 scale = Vector2(604.99994, 235)
 texture = SubResource("PlaceholderTexture2D_bhpww")
+
+[node name="Label" type="Label" parent="." unique_id=1800392082]
+z_index = 3
+offset_left = 479.0
+offset_top = 127.0
+offset_right = 641.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="AUDIO" type="Node2D" parent="." unique_id=1404432870]
+
+[node name="end_gong" type="AudioStreamPlayer2D" parent="AUDIO" unique_id=1053206393]
+stream = ExtResource("3_bhpww")
+attenuation = 3.6050334
 
 [connection signal="pressed" from="replay_button" to="." method="_on_replay_button_pressed"]

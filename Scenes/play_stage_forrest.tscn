@@ -736,6 +736,10 @@ wait_time = 90.0
 one_shot = true
 autostart = true
 
+[node name="MUSIC" type="Node2D" parent="." unique_id=407130305]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MUSIC" unique_id=1186834992]
+
 [connection signal="timeout" from="TIMERS/start_timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="TIMERS/wait_a_sec" to="." method="_on_wait_a_sec_timeout"]
 [connection signal="timeout" from="end_timer" to="." method="_on_timer_timeout"]

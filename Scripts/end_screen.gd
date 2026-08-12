@@ -2,6 +2,10 @@ extends Node2D
 
 @onready var lable = $Label
 
+func _ready() -> void:
+	$AUDIO/end_gong.play()
+	
+
 func _process(delta: float) -> void:
 	if Global.player_1_in == true:
 		lable.text = "Player 2 Wins!"
