@@ -37,3 +37,8 @@ func _on_wait_a_sec_timeout() -> void:
 
 func _on_music_timer_timeout() -> void:
 	$MUSIC/AudioStreamPlayer2D.play()
+	$TIMERS/music2_timer.start()
+	
+	
+func _on_music_2_timer_timeout() -> void:
+	$MUSIC/AudioStreamPlayer2D.play()

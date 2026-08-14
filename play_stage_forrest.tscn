@@ -18,7 +18,11 @@ texture = SubResource("PlaceholderTexture2D_qkmkd")
 wait_time = 5.0
 one_shot = true
 
+[node name="music2_timer" type="Timer" parent="TIMERS" parent_id_path=PackedInt32Array(1277014750) index="3" unique_id=473554874]
+wait_time = 30.0
+
 [node name="AudioStreamPlayer2D" parent="MUSIC" parent_id_path=PackedInt32Array(407130305) index="0" unique_id=1186834992]
 stream = ExtResource("2_auiqq")
 
 [connection signal="timeout" from="TIMERS/music_timer" to="." method="_on_music_timer_timeout"]
+[connection signal="timeout" from="TIMERS/music2_timer" to="." method="_on_music_2_timer_timeout"]
