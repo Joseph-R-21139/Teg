@@ -1,37 +1,40 @@
 extends Node2D
 
-@onready var lable = $Label
-@onready var timer = $end_timer
+@onready var timer: Timer = $end_timer
+@onready var label: Label = $Label
+
+func _physics_process(delta: float) -> void:
+	if timer.is_stopped():
+		label.text = "1.30"
+		return
+		
+	
+	var time_left: float = timer.time_left
+	
+	
+	var minutes: int = int(time_left) / 60
+	var seconds: int = int(time_left) % 60
+	
+	label.text = "%d:%02d" % [minutes, seconds]
+
 
 func _ready():
-	$end_timer.start()
 	$TIMERS/start_timer.start()
 	$VISUAL_ASSETS/AnimationPlayer.play("start_animation")
 	$TIMERS/wait_a_sec.start()
 	$TIMERS/music_timer.start()
 	Global.player_1_paused = true
 	Global.player_2_paused = true
-	lable.text = "%02d:%02d" % time_left()
 
-func time_left():
-	@warning_ignore("shadowed_variable")
-	var time_left = timer.time_left
-	var minute = floor(time_left/60)
-	var second = int(time_left) % 60
-	return [minute, second]
-
-	
-
-func _on_timer_timeout() -> void:
+func _on_end_timer_timeout() -> void:
 	$MUSIC/AudioStreamPlayer2D.stop()
 	get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
-
 
 func _on_start_timer_timeout() -> void:
 	$VISUAL_ASSETS/countdown_animation.hide()
 	Global.player_1_paused = false
 	Global.player_2_paused = false
-
+	$end_timer.start()
 	
 
 func _on_wait_a_sec_timeout() -> void:
@@ -41,6 +44,7 @@ func _on_wait_a_sec_timeout() -> void:
 func _on_music_timer_timeout() -> void:
 	$MUSIC/AudioStreamPlayer2D.play()
 	$TIMERS/music2_timer.start()
+	$end_timer.start()
 	
 	
 func _on_music_2_timer_timeout() -> void:

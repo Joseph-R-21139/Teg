@@ -26,3 +26,4 @@ stream = ExtResource("2_auiqq")
 
 [connection signal="timeout" from="TIMERS/music_timer" to="." method="_on_music_timer_timeout"]
 [connection signal="timeout" from="TIMERS/music2_timer" to="." method="_on_music_2_timer_timeout"]
+[connection signal="timeout" from="end_timer" to="." method="_on_end_timer_timeout"]
