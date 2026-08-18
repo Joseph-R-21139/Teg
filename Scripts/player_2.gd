@@ -6,40 +6,76 @@ var double_jump_charge = true
 
 func _ready():
 	add_to_group("player")
-
-func _physics_process(delta: float) -> void:
-	player_2_tag_indicator()
+	$"TAG ANIMATION2".hide()
 	
+enum States {IDLE,RUN_L,RUN_R,PAUSE}
+var state = States.IDLE
+func change_state(newState):
+	state = newState
+	
+func _physics_process(delta: float) -> void:
+	
+	$AnimatedSprite2D_2.play("idle")
+	$"../player_2/AnimatedSprite2D_2".play("idle")
+	player_2_tag_indicator()
+
+	match state:
+		States.IDLE:
+			idle()
+		States.RUN_L:
+			run_l()
+		States.RUN_R:
+			run_r()
+		States.PAUSE:
+			pause()
+
+
+	velocity += get_gravity() * delta *2.6
 	
 	if is_on_floor():
 		double_jump_charge = true
-	
-	if not is_on_floor():
-		velocity += get_gravity() * delta *2.6 
 		
-	# Handle jump.
 	if Input.is_action_just_pressed("player_2_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
+	
 	if Input.is_action_just_pressed("player_2_up") and not is_on_floor():
 		if double_jump_charge == true:
-			velocity.y = -1000
+			velocity.y = -1150
 			double_jump_charge = false
 		else:
 			pass
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("player_2_left", "player_2_right")
-	if direction:
-		if !Global.player_1_in:
-			velocity.x = direction * SPEED * 1.15
-		else:
-			velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+func idle():
+	velocity.x = 0
 	move_and_slide()
+	if Input.is_action_pressed("player_2_left"):
+		change_state(States.RUN_L)
+	
+	if Input.is_action_pressed("player_2_right"):
+		change_state(States.RUN_R)
+		
+func run_l():
+	if !Global.player_1_in:
+		velocity.x = -1 * SPEED * 1.15
+	else:
+		velocity.x = -1 * SPEED
+	move_and_slide()
+	
+	if Input.is_action_just_released("player_2_left"):
+		change_state(States.IDLE)
+		
+func run_r():
+	if !Global.player_1_in:
+		velocity.x = 1 * SPEED * 1.15
+	else:
+		velocity.x = 1 * SPEED
+	move_and_slide()
+	if Input.is_action_just_released("player_2_right"):
+		change_state(States.IDLE)
+
+func pause():
+	pass
 
 
 func player_2_tag_indicator():
