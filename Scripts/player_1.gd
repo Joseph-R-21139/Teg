@@ -51,6 +51,9 @@ func _physics_process(delta: float) -> void:
 func idle():
 	velocity.x = 0
 	move_and_slide()
+	if Global.player_1_paused == true:
+		change_state(States.PAUSE)
+		
 	if Input.is_action_pressed("player_1_left"):
 		change_state(States.RUN_L)
 	
@@ -77,7 +80,12 @@ func run_r():
 		change_state(States.IDLE)
 
 func pause():
-	pass
+	velocity.x = 0
+	velocity.y = 0
+	
+	if Global.player_1_paused == false:
+		change_state(States.IDLE)
+	
 
 
 func player_1_tag_indicator():
@@ -85,8 +93,7 @@ func player_1_tag_indicator():
 		$INDICATOR.hide()
 	else:
 		$INDICATOR.show()
-		
-@warning_ignore("unused_parameter")
+
 func _on_player_1_tag_area_area_entered(area: Area2D) -> void:
 	
 	Global.player_1_in = !Global.player_1_in

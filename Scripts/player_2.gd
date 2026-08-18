@@ -49,6 +49,10 @@ func _physics_process(delta: float) -> void:
 func idle():
 	velocity.x = 0
 	move_and_slide()
+	
+	if Global.player_2_paused == true:
+		change_state(States.PAUSE)
+	
 	if Input.is_action_pressed("player_2_left"):
 		change_state(States.RUN_L)
 	
@@ -75,8 +79,11 @@ func run_r():
 		change_state(States.IDLE)
 
 func pause():
-	pass
-
+	velocity.x = 0
+	velocity.y = 0
+	
+	if Global.player_2_paused == false:
+		change_state(States.IDLE)
 
 func player_2_tag_indicator():
 	if Global.player_1_in == true:

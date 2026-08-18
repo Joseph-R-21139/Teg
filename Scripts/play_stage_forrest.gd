@@ -9,6 +9,9 @@ func _ready():
 	$VISUAL_ASSETS/AnimationPlayer.play("start_animation")
 	$TIMERS/wait_a_sec.start()
 	$TIMERS/music_timer.start()
+	Global.player_1_paused = true
+	Global.player_2_paused = true
+	lable.text = "%02d:%02d" % time_left()
 
 func time_left():
 	@warning_ignore("shadowed_variable")
@@ -17,9 +20,7 @@ func time_left():
 	var second = int(time_left) % 60
 	return [minute, second]
 
-@warning_ignore("unused_parameter")
-func _process(delta):
-	lable.text = "%02d:%02d" % time_left()
+	
 
 func _on_timer_timeout() -> void:
 	$MUSIC/AudioStreamPlayer2D.stop()
@@ -28,6 +29,8 @@ func _on_timer_timeout() -> void:
 
 func _on_start_timer_timeout() -> void:
 	$VISUAL_ASSETS/countdown_animation.hide()
+	Global.player_1_paused = false
+	Global.player_2_paused = false
 
 	
 
