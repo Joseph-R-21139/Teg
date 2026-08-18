@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://brh5jox1diwha"]
+[gd_scene format=4 uid="uid://brh5jox1diwha"]
 
 [ext_resource type="Script" uid="uid://otxgyqma0qw2" path="res://Scripts/get_ready_scene.gd" id="1_76ytl"]
 [ext_resource type="Texture2D" uid="uid://bynf58bh1onfo" path="res://Sprites/info_1.png" id="2_a2iks"]
 [ext_resource type="Texture2D" uid="uid://b8al27ri83sg4" path="res://Sprites/info_2.png" id="3_b0j6g"]
 [ext_resource type="Texture2D" uid="uid://r0kycwwnbkkh" path="res://Sprites/info_3.png" id="4_shy0m"]
 [ext_resource type="Texture2D" uid="uid://bp8hrhqt3dr2x" path="res://Sprites/Egg_Idle.png" id="5_b0j6g"]
+[ext_resource type="Texture2D" uid="uid://g8abplgbk0pc" path="res://Sprites/button_tile2.png" id="6_shy0m"]
 
 [sub_resource type="Gradient" id="Gradient_76ytl"]
 
@@ -91,6 +92,22 @@ animations = [{
 
 [sub_resource type="FontVariation" id="FontVariation_qf6hw"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lge8k"]
+texture = ExtResource("6_shy0m")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ybjtj"]
+sources/0 = SubResource("TileSetAtlasSource_lge8k")
+
 [node name="get_ready_scene" type="Node2D" unique_id=208496502]
 script = ExtResource("1_76ytl")
 
@@ -151,13 +168,21 @@ text = "Pleyer 2 controles
 ↑ = Jump
 ←→ = Left and Right"
 
+[node name="button_tiles" type="TileMapLayer" parent="VISUAL ASSETS" unique_id=1261413430]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAAKAAAAAAACAAAAAAAKAAIAAAACAAIAAAAKAAEAAAACAAEAAAAJAAIAAAABAAIAAAAIAAIAAAABAAIAAAAHAAIAAAABAAIAAAAGAAIAAAABAAIAAAAFAAIAAAABAAIAAAAEAAIAAAABAAIAAAADAAIAAAABAAIAAAACAAIAAAABAAIAAAABAAIAAAABAAIAAAAAAAIAAAAAAAIAAAAAAAEAAAAAAAEAAAABAAEAAAADAAMAAAACAAEAAAADAAMAAAADAAEAAAADAAMAAAAIAAEAAAADAAMAAAAJAAEAAAADAAMAAAAHAAEAAAADAAMAAAAGAAEAAAADAAMAAAAFAAEAAAADAAMAAAAEAAEAAAADAAMAAAA=")
+tile_set = SubResource("TileSet_ybjtj")
+
 [node name="BUTTONS" type="Node2D" parent="." unique_id=934728582]
 
 [node name="back_to_main_menu" type="Button" parent="BUTTONS" unique_id=1664809938]
+modulate = Color(0, 0, 0, 1)
 texture_filter = 1
 offset_right = 264.0
 offset_bottom = 72.0
 text = "Back to Main Menu"
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="start_game_button" type="Button" parent="BUTTONS" unique_id=384349881]

@@ -1,41 +1,42 @@
-[gd_scene format=3 uid="uid://bfmnk7lf25a6m"]
+[gd_scene format=4 uid="uid://bfmnk7lf25a6m"]
 
 [ext_resource type="Script" uid="uid://cnfbuobqqvpas" path="res://Scripts/end_screen.gd" id="1_f2mtv"]
 [ext_resource type="Texture2D" uid="uid://r0kycwwnbkkh" path="res://Sprites/info_3.png" id="2_1gwaw"]
 [ext_resource type="AudioStream" uid="uid://dad2p45tv2keq" path="res://Sounds/gong-hit-large-gfx-sounds-1-1-00-06.mp3" id="3_bhpww"]
+[ext_resource type="Texture2D" uid="uid://g8abplgbk0pc" path="res://Sprites/button_tile2.png" id="4_gdxnu"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f2mtv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bhpww"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yanq"]
+texture = ExtResource("4_gdxnu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fi2y0"]
+sources/0 = SubResource("TileSetAtlasSource_8yanq")
+
 [node name="end_screen" type="Node2D" unique_id=1987686417]
 script = ExtResource("1_f2mtv")
 
 [node name="replay_button" type="Button" parent="." unique_id=2129688094]
+modulate = Color(0, 0, 0, 1)
 z_index = 1
-offset_left = 481.0
-offset_top = 328.0
-offset_right = 655.0
-offset_bottom = 424.0
+offset_left = 767.0
+offset_top = 453.0
+offset_right = 1093.0
+offset_bottom = 603.0
 text = "New Match"
-
-[node name="background" type="Sprite2D" parent="." unique_id=1786766669]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(583, 321.25)
-scale = Vector2(1190, 683.5)
-texture = SubResource("PlaceholderTexture2D_f2mtv")
-
-[node name="winning_pose" type="Sprite2D" parent="." unique_id=52185983]
-texture_filter = 1
-position = Vector2(856, 313)
-scale = Vector2(9, 9)
-texture = ExtResource("2_1gwaw")
-
-[node name="cover_cropper" type="Sprite2D" parent="." unique_id=1757337346]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(823.5, 151.5)
-scale = Vector2(604.99994, 235)
-texture = SubResource("PlaceholderTexture2D_bhpww")
+flat = true
 
 [node name="Label" type="Label" parent="." unique_id=1800392082]
 z_index = 3
@@ -53,5 +54,31 @@ uppercase = true
 [node name="end_gong" type="AudioStreamPlayer2D" parent="AUDIO" unique_id=1053206393]
 stream = ExtResource("3_bhpww")
 attenuation = 3.6050334
+
+[node name="VISUALS" type="Node2D" parent="." unique_id=151913866]
+
+[node name="background" type="Sprite2D" parent="VISUALS" unique_id=1786766669]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(581, 328.00003)
+scale = Vector2(1190, 683.5)
+texture = SubResource("PlaceholderTexture2D_f2mtv")
+
+[node name="winning_pose" type="Sprite2D" parent="VISUALS" unique_id=52185983]
+texture_filter = 1
+position = Vector2(334, 318)
+scale = Vector2(9, 9)
+texture = ExtResource("2_1gwaw")
+
+[node name="cover_cropper" type="Sprite2D" parent="VISUALS" unique_id=1757337346]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(325, 153.00002)
+scale = Vector2(604.99994, 235)
+texture = SubResource("PlaceholderTexture2D_bhpww")
+
+[node name="button_tiles" type="TileMapLayer" parent="VISUALS" unique_id=1217319493]
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAZAA4AAAABAAAAAAAaAA4AAAABAAAAAAAbAA4AAAABAAAAAAAcAA4AAAABAAAAAAAdAA4AAAABAAAAAAAeAA4AAAABAAAAAAAfAA4AAAABAAAAAAAgAA4AAAABAAAAAAAhAA8AAAACAAEAAAAhABAAAAACAAEAAAAYAA8AAAAAAAEAAAAYABAAAAAAAAEAAAAZABIAAAABAAIAAAAaABIAAAABAAIAAAAbABIAAAABAAIAAAAcABIAAAABAAIAAAAdABIAAAABAAIAAAAeABIAAAABAAIAAAAfABIAAAABAAIAAAAgABIAAAABAAIAAAAhABEAAAACAAEAAAAYABEAAAAAAAEAAAAhABIAAAACAAIAAAAhAA4AAAACAAAAAAAYAA4AAAAAAAAAAAAYABIAAAAAAAIAAAAbABAAAAADAAMAAAAbAA8AAAADAAMAAAAaAA8AAAADAAMAAAAZAA8AAAADAAMAAAAZABAAAAADAAMAAAAZABEAAAADAAMAAAAaABEAAAADAAMAAAAaABAAAAADAAMAAAAbABEAAAADAAMAAAAcABEAAAADAAMAAAAcABAAAAADAAMAAAAcAA8AAAADAAMAAAAdAA8AAAADAAMAAAAdABAAAAADAAMAAAAdABEAAAADAAMAAAAeABEAAAADAAMAAAAeABAAAAADAAMAAAAeAA8AAAADAAMAAAAfAA8AAAADAAMAAAAfABAAAAADAAMAAAAfABEAAAADAAMAAAAgABEAAAADAAMAAAAgABAAAAADAAMAAAAgAA8AAAADAAMAAAA=")
+tile_set = SubResource("TileSet_fi2y0")
 
 [connection signal="pressed" from="replay_button" to="." method="_on_replay_button_pressed"]

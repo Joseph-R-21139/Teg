@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://2hr4wm52v6l3" path="res://Scripts/player_2.gd" id="3_mv22w"]
 [ext_resource type="PackedScene" uid="uid://bcad47dwu11em" path="res://Scenes/indicator.tscn" id="4_w7s1m"]
 [ext_resource type="AudioStream" uid="uid://wpti8r85at31" path="res://Sounds/freesound_community-pop-39222.mp3" id="5_ief1t"]
+[ext_resource type="PackedScene" uid="uid://d3s1cyj6awmxj" path="res://Scenes/tag_animation.tscn" id="6_1xuw1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mv22w"]
 radius = 12.0
@@ -121,6 +122,9 @@ frame_progress = 0.7219538
 
 [node name="INDICATOR" parent="player_1" unique_id=1933231571 instance=ExtResource("4_w7s1m")]
 
+[node name="TAG ANIMATION1" parent="player_1" unique_id=761633480 instance=ExtResource("6_1xuw1")]
+z_index = -1
+
 [node name="player_2" type="CharacterBody2D" parent="." unique_id=735358170 groups=["player_1_in", "player_1_tagged", "player_2_in", "player_2_tagged"]]
 position = Vector2(90, 0)
 script = ExtResource("3_mv22w")
@@ -142,6 +146,9 @@ sprite_frames = SubResource("SpriteFrames_et7db")
 animation = &"idle"
 
 [node name="INDICATOR2" parent="player_2" unique_id=970931867 instance=ExtResource("4_w7s1m")]
+
+[node name="TAG ANIMATION2" parent="player_2" unique_id=2000691882 instance=ExtResource("6_1xuw1")]
+z_index = -1
 
 [node name="tag_sound" type="AudioStreamPlayer2D" parent="." unique_id=703117991]
 stream = ExtResource("5_ief1t")

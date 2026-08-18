@@ -1,12 +1,29 @@
-[gd_scene format=3 uid="uid://bg57gq80v7cf8"]
+[gd_scene format=4 uid="uid://bg57gq80v7cf8"]
 
 [ext_resource type="Script" uid="uid://c4e8ljwde8e1s" path="res://Scripts/main_menu_buttons.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cv23ctgyevp55" path="res://Sprites/menu_bg.png" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://g8abplgbk0pc" path="res://Sprites/button_tile2.png" id="2_1ehe0"]
 
 [sub_resource type="Gradient" id="Gradient_1ehe0"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ce3w2"]
 gradient = SubResource("Gradient_1ehe0")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ce3w2"]
+texture = ExtResource("2_1ehe0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_n45e2"]
+sources/0 = SubResource("TileSetAtlasSource_ce3w2")
 
 [node name="main_menu" type="Node2D" unique_id=745996633]
 position = Vector2(2, 0)
@@ -26,32 +43,48 @@ position = Vector2(574.50006, 326)
 scale = Vector2(18.296875, 10.499999)
 texture = SubResource("GradientTexture2D_ce3w2")
 
+[node name="button_tyles" type="TileMapLayer" parent="VISUAL_ASSETES" unique_id=1701538147]
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAEAAcAAAAAAAAAAAAFAAcAAAABAAAAAAAGAAcAAAABAAAAAAAHAAcAAAABAAAAAAAIAAcAAAABAAAAAAAJAAcAAAABAAAAAAAKAAcAAAABAAAAAAALAAcAAAABAAAAAAAMAAcAAAABAAAAAAANAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAgAAAACAAEAAAAOAAkAAAACAAIAAAANAAkAAAABAAIAAAAMAAkAAAABAAIAAAALAAkAAAABAAIAAAAKAAkAAAABAAIAAAAJAAkAAAABAAIAAAAIAAkAAAABAAIAAAAHAAkAAAABAAIAAAAGAAkAAAABAAIAAAAFAAkAAAABAAIAAAAEAAkAAAAAAAIAAAAEAAgAAAAAAAEAAAAFAAgAAAADAAMAAAAGAAgAAAADAAMAAAAHAAgAAAADAAMAAAAIAAgAAAADAAMAAAAJAAgAAAADAAMAAAAKAAgAAAADAAMAAAALAAgAAAADAAMAAAAMAAgAAAADAAMAAAANAAgAAAADAAMAAAAEAAsAAAAAAAAAAAAFAAsAAAABAAAAAAAGAAsAAAABAAAAAAAHAAsAAAABAAAAAAAIAAsAAAABAAAAAAAJAAsAAAABAAAAAAAKAAsAAAABAAAAAAALAAsAAAABAAAAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAACAAAAAAAOAAwAAAACAAEAAAAOAA0AAAACAAIAAAANAA0AAAABAAIAAAAMAA0AAAABAAIAAAALAA0AAAABAAIAAAAKAA0AAAABAAIAAAAJAA0AAAABAAIAAAAIAA0AAAABAAIAAAAHAA0AAAABAAIAAAAGAA0AAAABAAIAAAAFAA0AAAABAAIAAAAEAA0AAAAAAAIAAAAEAAwAAAAAAAEAAAAFAAwAAAADAAMAAAAGAAwAAAADAAMAAAAHAAwAAAADAAMAAAAIAAwAAAADAAMAAAAJAAwAAAADAAMAAAAKAAwAAAADAAMAAAALAAwAAAADAAMAAAAMAAwAAAADAAMAAAANAAwAAAADAAMAAAAEAA8AAAAAAAAAAAAFAA8AAAABAAAAAAAGAA8AAAABAAAAAAAHAA8AAAABAAAAAAAIAA8AAAABAAAAAAAJAA8AAAABAAAAAAAKAA8AAAABAAAAAAALAA8AAAABAAAAAAAMAA8AAAABAAAAAAANAA8AAAABAAAAAAAOAA8AAAACAAAAAAAOABAAAAACAAEAAAAOABEAAAACAAIAAAANABEAAAABAAIAAAAMABEAAAABAAIAAAALABEAAAABAAIAAAAKABEAAAABAAIAAAAJABEAAAABAAIAAAAIABEAAAABAAIAAAAHABEAAAABAAIAAAAGABEAAAABAAIAAAAFABEAAAABAAIAAAAEABEAAAAAAAIAAAAEABAAAAAAAAEAAAAFABAAAAADAAMAAAAGABAAAAADAAMAAAAHABAAAAADAAMAAAAIABAAAAADAAMAAAAJABAAAAADAAMAAAAKABAAAAADAAMAAAALABAAAAADAAMAAAAMABAAAAADAAMAAAANABAAAAADAAMAAAA=")
+tile_set = SubResource("TileSet_n45e2")
+
 [node name="BUTTONS" type="Node2D" parent="." unique_id=954126762]
 script = ExtResource("1_28flt")
 
 [node name="exit_button" type="Button" parent="BUTTONS" unique_id=430370525]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
 texture_filter = 1
-offset_left = 142.0
-offset_top = 427.0
-offset_right = 469.0
-offset_bottom = 500.0
+offset_left = 140.0
+offset_top = 491.0
+offset_right = 467.0
+offset_bottom = 564.0
 text = "Quit game"
+flat = true
 
 [node name="options_button" type="Button" parent="BUTTONS" unique_id=1711891245]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
 texture_filter = 1
 offset_left = 139.0
-offset_top = 337.0
+offset_top = 365.0
 offset_right = 468.0
-offset_bottom = 409.0
+offset_bottom = 437.0
 text = "Options"
+flat = true
 
 [node name="play_button" type="Button" parent="BUTTONS" unique_id=2082914724]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
 texture_filter = 1
-offset_left = 138.0
-offset_top = 245.0
-offset_right = 467.0
-offset_bottom = 317.0
+offset_left = 139.0
+offset_top = 235.0
+offset_right = 468.0
+offset_bottom = 307.0
 text = "Play game"
+flat = true
 
 [connection signal="pressed" from="BUTTONS/exit_button" to="BUTTONS" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="BUTTONS/options_button" to="BUTTONS" method="_on_options_button_pressed"]

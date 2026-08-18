@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://1qu2xgpgtat2"]
+[gd_scene format=4 uid="uid://1qu2xgpgtat2"]
 
 [ext_resource type="Script" uid="uid://dmoj07baid3n3" path="res://Scripts/options_menu.gd" id="1_uj0ok"]
+[ext_resource type="Texture2D" uid="uid://g8abplgbk0pc" path="res://Sprites/button_tile2.png" id="2_uj0ok"]
 
 [sub_resource type="GDScript" id="GDScript_plplt"]
 
@@ -9,6 +10,22 @@
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_l1wg4"]
 gradient = SubResource("Gradient_uj0ok")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l1wg4"]
+texture = ExtResource("2_uj0ok")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_inh3s"]
+sources/0 = SubResource("TileSetAtlasSource_l1wg4")
+
 [node name="options_menu" type="Node2D" unique_id=1197686813]
 script = ExtResource("1_uj0ok")
 
@@ -16,10 +33,13 @@ script = ExtResource("1_uj0ok")
 script = SubResource("GDScript_plplt")
 
 [node name="back_to_main_menu" type="Button" parent="BUTTONS" unique_id=613822491]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
 texture_filter = 1
 offset_right = 264.0
 offset_bottom = 72.0
 text = "Back to Main Menu"
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="SLIDERS" type="Node2D" parent="." unique_id=1015598971]
@@ -64,6 +84,12 @@ offset_top = 399.0
 offset_right = 645.0
 offset_bottom = 422.0
 text = "Music Volume"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="VISUALS" unique_id=1205593331]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAIAAAABAAIAAAABAAIAAAACAAIAAAABAAIAAAADAAIAAAABAAIAAAAEAAIAAAABAAIAAAAFAAIAAAABAAIAAAAGAAIAAAABAAIAAAAHAAIAAAABAAIAAAAIAAIAAAABAAIAAAAJAAIAAAABAAIAAAAKAAIAAAACAAIAAAAKAAAAAAACAAAAAAAKAAEAAAACAAEAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAABAAEAAAADAAMAAAADAAEAAAADAAMAAAAEAAEAAAADAAMAAAAFAAEAAAADAAMAAAAGAAEAAAADAAMAAAAHAAEAAAADAAMAAAAIAAEAAAADAAMAAAAJAAEAAAADAAMAAAACAAEAAAADAAMAAAA=")
+tile_set = SubResource("TileSet_inh3s")
 
 [connection signal="pressed" from="BUTTONS/back_to_main_menu" to="." method="_on_back_to_main_menu_pressed"]
 [connection signal="value_changed" from="SLIDERS/master_volume" to="." method="_on_master_volume_value_changed"]
