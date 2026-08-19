@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED =800
-const JUMP_VELOCITY = -1150
+const JUMP_VELOCITY = -1200
 var double_jump_charge = true
 
 func _ready():
@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 			pause()
 
 
-	velocity += get_gravity() * delta *2.6
+	velocity += get_gravity() * delta *3
 	
 	if is_on_floor():
 		double_jump_charge = true
@@ -62,7 +62,7 @@ func idle():
 		
 func run_l():
 	if Global.player_1_in:
-		velocity.x = -1 * SPEED * 1.3
+		velocity.x = -1 * SPEED * 1.2
 	else:
 		velocity.x = -1 * SPEED
 	move_and_slide()
@@ -74,7 +74,7 @@ func run_l():
 		change_state(States.PAUSE)
 func run_r():
 	if Global.player_1_in:
-		velocity.x = 1 * SPEED * 1.3
+		velocity.x = 1 * SPEED * 1.2
 	else:
 		velocity.x = 1 * SPEED
 	move_and_slide()
