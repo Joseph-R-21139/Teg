@@ -90,6 +90,41 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0e4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4k0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aatkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp8rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkush")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmi10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mndha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ympu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fs8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4j3i")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ief1t"]
@@ -119,8 +154,7 @@ shape = SubResource("RectangleShape2D_w7s1m")
 [node name="AnimatedSprite2D_1" type="AnimatedSprite2D" parent="player_1" unique_id=319075457]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_et7db")
-animation = &"idle"
-frame_progress = 0.7219538
+animation = &"run"
 
 [node name="INDICATOR" parent="player_1" unique_id=1933231571 instance=ExtResource("4_w7s1m")]
 

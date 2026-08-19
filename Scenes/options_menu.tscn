@@ -26,6 +26,12 @@ texture = ExtResource("2_uj0ok")
 [sub_resource type="TileSet" id="TileSet_inh3s"]
 sources/0 = SubResource("TileSetAtlasSource_l1wg4")
 
+[sub_resource type="Gradient" id="Gradient_l1wg4"]
+offsets = PackedFloat32Array(0, 0.018072288)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_inh3s"]
+gradient = SubResource("Gradient_l1wg4")
+
 [node name="options_menu" type="Node2D" unique_id=1197686813]
 script = ExtResource("1_uj0ok")
 
@@ -42,9 +48,24 @@ text = "Back to Main Menu"
 flat = true
 metadata/_edit_use_anchors_ = true
 
+[node name="forrest_map_select" type="Button" parent="BUTTONS" unique_id=2002367348]
+texture_filter = 1
+offset_left = 393.0
+offset_top = 106.0
+offset_right = 568.0
+offset_bottom = 208.0
+text = "Forrest"
+
+[node name="red_map_selected" type="Button" parent="BUTTONS" unique_id=1944684862]
+offset_left = 592.0
+offset_top = 107.0
+offset_right = 769.0
+offset_bottom = 204.0
+text = "Autumn"
+
 [node name="SLIDERS" type="Node2D" parent="." unique_id=1015598971]
 
-[node name="master_volume" type="HSlider" parent="SLIDERS" unique_id=1345986510]
+[node name="SFX_volume" type="HSlider" parent="SLIDERS" unique_id=1345986510]
 offset_left = 386.0
 offset_top = 236.0
 offset_right = 786.391
@@ -91,6 +112,28 @@ scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAIAAAABAAIAAAABAAIAAAACAAIAAAABAAIAAAADAAIAAAABAAIAAAAEAAIAAAABAAIAAAAFAAIAAAABAAIAAAAGAAIAAAABAAIAAAAHAAIAAAABAAIAAAAIAAIAAAABAAIAAAAJAAIAAAABAAIAAAAKAAIAAAACAAIAAAAKAAAAAAACAAAAAAAKAAEAAAACAAEAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAABAAEAAAADAAMAAAADAAEAAAADAAMAAAAEAAEAAAADAAMAAAAFAAEAAAADAAMAAAAGAAEAAAADAAMAAAAHAAEAAAADAAMAAAAIAAEAAAADAAMAAAAJAAEAAAADAAMAAAACAAEAAAADAAMAAAA=")
 tile_set = SubResource("TileSet_inh3s")
 
+[node name="map_select" type="Label" parent="VISUALS" unique_id=1559321073]
+offset_left = 389.0
+offset_top = 24.0
+offset_right = 805.0
+offset_bottom = 72.0
+text = "Change map"
+horizontal_alignment = 1
+
+[node name="forrest_selected" type="Sprite2D" parent="VISUALS" unique_id=1938183170]
+z_index = -1
+position = Vector2(479.00003, 156)
+scale = Vector2(0.7187498, 106.00001)
+texture = SubResource("GradientTexture1D_inh3s")
+
+[node name="red_selected" type="Sprite2D" parent="VISUALS" unique_id=940298246]
+z_index = -1
+position = Vector2(679, 156)
+scale = Vector2(0.7187498, 106.00001)
+texture = SubResource("GradientTexture1D_inh3s")
+
 [connection signal="pressed" from="BUTTONS/back_to_main_menu" to="." method="_on_back_to_main_menu_pressed"]
-[connection signal="value_changed" from="SLIDERS/master_volume" to="." method="_on_master_volume_value_changed"]
+[connection signal="pressed" from="BUTTONS/forrest_map_select" to="." method="_on_forrest_map_select_pressed"]
+[connection signal="pressed" from="BUTTONS/red_map_selected" to="." method="_on_red_map_selected_pressed"]
+[connection signal="value_changed" from="SLIDERS/SFX_volume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="SLIDERS/music_vol" to="." method="_on_music_vol_value_changed"]

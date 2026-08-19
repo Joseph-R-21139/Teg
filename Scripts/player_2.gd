@@ -16,7 +16,6 @@ func change_state(newState):
 func _physics_process(delta: float) -> void:
 	
 	$AnimatedSprite2D_2.play("idle")
-	$"../player_2/AnimatedSprite2D_2".play("idle")
 	player_2_tag_indicator()
 
 	match state:
@@ -48,6 +47,7 @@ func _physics_process(delta: float) -> void:
 
 func idle():
 	velocity.x = 0
+	$AnimatedSprite2D_2.play("idle")
 	move_and_slide()
 	
 	if Global.player_2_paused == true:
@@ -65,6 +65,7 @@ func run_l():
 	else:
 		velocity.x = -1 * SPEED
 	move_and_slide()
+	$AnimatedSprite2D_2.play("run")
 	
 	if Input.is_action_just_released("player_2_left"):
 		change_state(States.IDLE)
@@ -78,7 +79,7 @@ func run_r():
 	else:
 		velocity.x = 1 * SPEED
 	move_and_slide()
-	
+	$AnimatedSprite2D_2.play("run")
 	if Input.is_action_just_released("player_2_right"):
 		change_state(States.IDLE)
 		

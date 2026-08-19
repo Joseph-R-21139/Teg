@@ -87,7 +87,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 12.0
+"speed": 10.0
 }]
 
 [sub_resource type="FontVariation" id="FontVariation_qf6hw"]
@@ -143,7 +143,7 @@ position = Vector2(558, 156)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_x1ty0")
 animation = &"idle"
-frame_progress = 0.3712862
+frame_progress = 0.4556016
 
 [node name="p1_controles" type="Label" parent="VISUAL ASSETS" unique_id=1321184088]
 texture_filter = 1
