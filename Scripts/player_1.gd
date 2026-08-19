@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED =800
-const JUMP_VELOCITY = -1200
+const JUMP_VELOCITY = -1250
 var double_jump_charge = true
 
 func _ready():
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("player_1_up") and not is_on_floor():
 		if double_jump_charge == true:
-			velocity.y = JUMP_VELOCITY
+			velocity.y = JUMP_VELOCITY*0.9
 			double_jump_charge = false
 		else:
 			pass
