@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://d3s1cyj6awmxj"]
 
 [ext_resource type="Texture2D" uid="uid://dho0svnjxmykg" path="res://Sprites/explode1.png" id="1_iexop"]
-[ext_resource type="Script" uid="uid://b8qcx731jyrps" path="res://Scenes/tag_animation.gd" id="1_v8l4u"]
+[ext_resource type="Script" uid="uid://b8qcx731jyrps" path="res://Scripts/tag_animation.gd" id="1_v8l4u"]
 [ext_resource type="Texture2D" uid="uid://denr3qt6fcnk2" path="res://Sprites/explode2.png" id="2_d3s5p"]
 [ext_resource type="Texture2D" uid="uid://t258cghqcovx" path="res://Sprites/explode3.png" id="3_g33w1"]
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7y4q2"]
 animations = [{

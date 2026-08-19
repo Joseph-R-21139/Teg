@@ -93,3 +93,4 @@ tile_set = SubResource("TileSet_inh3s")
 
 [connection signal="pressed" from="BUTTONS/back_to_main_menu" to="." method="_on_back_to_main_menu_pressed"]
 [connection signal="value_changed" from="SLIDERS/master_volume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="SLIDERS/music_vol" to="." method="_on_music_vol_value_changed"]

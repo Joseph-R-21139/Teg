@@ -6,7 +6,7 @@ func _ready() -> void:
 	$AUDIO/end_gong.play()
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Global.player_1_in == true:
 		lable.text = "Player 2 Wins!"
 	

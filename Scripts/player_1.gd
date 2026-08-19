@@ -99,7 +99,7 @@ func player_1_tag_indicator():
 	else:
 		$INDICATOR.show()
 
-func _on_player_1_tag_area_area_entered(area: Area2D) -> void:
+func _on_player_1_tag_area_area_entered(_area: Area2D) -> void:
 	if Global.can_tag == true:
 		if Global.player_1_in == true:
 			Global.player_1_in = !Global.player_1_in

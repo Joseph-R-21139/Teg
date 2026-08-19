@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c42bitqfq40er" path="res://Sounds/tuomas_data-game-countdown-62-199828.mp3" id="3_b178s"]
 [ext_resource type="Texture2D" uid="uid://3w1xfbw3ifk0" path="res://Sprites/new_joseph_sprite.png" id="3_do1k0"]
 [ext_resource type="Script" uid="uid://ce1dmd4iiexfl" path="res://Scripts/camera_2d.gd" id="3_rx7qk"]
+[ext_resource type="AudioStream" uid="uid://ck412wiuhjf8m" path="res://Sounds/moodmode-retro-game-arcade-short-236130.mp3" id="7_b178s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_koq2v"]
 texture = ExtResource("1_74ui5")
@@ -680,10 +681,11 @@ volume_db = 3.2
 pitch_scale = 0.95
 max_distance = 4096.0
 attenuation = 1e-05
+bus = &"sfx"
 
 [node name="countdown_animation" type="Sprite2D" parent="VISUAL_ASSETS" unique_id=292582676]
 texture_filter = 1
-position = Vector2(611, 55)
+position = Vector2(595, 47)
 scale = Vector2(3.2285993, 3.4316404)
 texture = ExtResource("3_do1k0")
 hframes = 4
@@ -701,6 +703,18 @@ autostart = true
 script = SubResource("GDScript_v1t75")
 
 [node name="wait_a_sec" type="Timer" parent="TIMERS" unique_id=228939726]
+one_shot = true
+
+[node name="music_start_timer" type="Timer" parent="TIMERS" unique_id=2134487709]
+wait_time = 5.0
+one_shot = true
+
+[node name="music_replay_timer" type="Timer" parent="TIMERS" unique_id=1823621695]
+wait_time = 28.0
+one_shot = true
+
+[node name="music_replay2_timer" type="Timer" parent="TIMERS" unique_id=650188568]
+wait_time = 28.0
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1093406956]
@@ -737,8 +751,13 @@ one_shot = true
 
 [node name="MUSIC" type="Node2D" parent="." unique_id=407130305]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MUSIC" unique_id=1186834992]
+[node name="music_player" type="AudioStreamPlayer2D" parent="MUSIC" unique_id=1186834992]
+stream = ExtResource("7_b178s")
+bus = &"music"
 
 [connection signal="timeout" from="TIMERS/start_timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="TIMERS/wait_a_sec" to="." method="_on_wait_a_sec_timeout"]
-[connection signal="timeout" from="end_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TIMERS/music_start_timer" to="." method="_on_music_start_timer_timeout"]
+[connection signal="timeout" from="TIMERS/music_replay_timer" to="." method="_on_music_replay_timer_timeout"]
+[connection signal="timeout" from="TIMERS/music_replay2_timer" to="." method="_on_music_replay_2_timer_timeout"]
+[connection signal="timeout" from="end_timer" to="." method="_on_end_timer_timeout"]

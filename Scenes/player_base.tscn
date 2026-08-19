@@ -155,6 +155,7 @@ z_index = -1
 
 [node name="tag_sound" type="AudioStreamPlayer2D" parent="." unique_id=703117991]
 stream = ExtResource("5_ief1t")
+bus = &"sfx"
 
 [node name="can_tag_timer" type="Timer" parent="." unique_id=904909008]
 one_shot = true
