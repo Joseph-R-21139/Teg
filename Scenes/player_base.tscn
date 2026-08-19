@@ -122,7 +122,7 @@ frame_progress = 0.7219538
 
 [node name="INDICATOR" parent="player_1" unique_id=1933231571 instance=ExtResource("4_w7s1m")]
 
-[node name="TAG ANIMATION1" parent="player_1" unique_id=761633480 instance=ExtResource("6_1xuw1")]
+[node name="TAG_ANIMATION1" parent="player_1" unique_id=761633480 instance=ExtResource("6_1xuw1")]
 z_index = -1
 
 [node name="player_2" type="CharacterBody2D" parent="." unique_id=735358170 groups=["player_1_in", "player_1_tagged", "player_2_in", "player_2_tagged"]]
@@ -147,12 +147,16 @@ animation = &"idle"
 
 [node name="INDICATOR2" parent="player_2" unique_id=970931867 instance=ExtResource("4_w7s1m")]
 
-[node name="TAG ANIMATION2" parent="player_2" unique_id=2000691882 instance=ExtResource("6_1xuw1")]
+[node name="TAG_ANIMATION2" parent="player_2" unique_id=2000691882 instance=ExtResource("6_1xuw1")]
 z_index = -1
 
 [node name="tag_sound" type="AudioStreamPlayer2D" parent="." unique_id=703117991]
 stream = ExtResource("5_ief1t")
 
+[node name="can_tag_timer" type="Timer" parent="." unique_id=904909008]
+one_shot = true
+
 [connection signal="area_entered" from="player_1/player_1_tag_area" to="player_1" method="_on_player_1_tag_area_area_entered"]
 [connection signal="body_entered" from="player_1/player_1_tag_area" to="player_1" method="_on_player_1_tag_area_body_entered"]
 [connection signal="body_entered" from="player_2/player_2_tag_area" to="player_1" method="_on_player_2_tag_area_body_entered"]
+[connection signal="timeout" from="can_tag_timer" to="player_1" method="_on_can_tag_timer_timeout"]

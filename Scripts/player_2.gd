@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-const SPEED =750
+const SPEED =800
 const JUMP_VELOCITY = -1150
 var double_jump_charge = true
 
 func _ready():
 	add_to_group("player")
-	$"TAG ANIMATION2".hide()
+	$TAG_ANIMATION2.hide()
 	
 enum States {IDLE,RUN_L,RUN_R,PAUSE}
 var state = States.IDLE
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("player_2_up") and not is_on_floor():
 		if double_jump_charge == true:
-			velocity.y = -1150
+			velocity.y = JUMP_VELOCITY
 			double_jump_charge = false
 		else:
 			pass
@@ -61,7 +61,7 @@ func idle():
 		
 func run_l():
 	if !Global.player_1_in:
-		velocity.x = -1 * SPEED * 1.15
+		velocity.x = -1 * SPEED * 1.3
 	else:
 		velocity.x = -1 * SPEED
 	move_and_slide()
@@ -69,14 +69,21 @@ func run_l():
 	if Input.is_action_just_released("player_2_left"):
 		change_state(States.IDLE)
 		
+	if Global.player_2_paused == true:
+		change_state(States.PAUSE)
+		
 func run_r():
 	if !Global.player_1_in:
-		velocity.x = 1 * SPEED * 1.15
+		velocity.x = 1 * SPEED * 1.3
 	else:
 		velocity.x = 1 * SPEED
 	move_and_slide()
+	
 	if Input.is_action_just_released("player_2_right"):
 		change_state(States.IDLE)
+		
+	if Global.player_2_paused == true:
+		change_state(States.PAUSE)
 
 func pause():
 	velocity.x = 0
