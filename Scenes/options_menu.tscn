@@ -136,4 +136,5 @@ texture = SubResource("GradientTexture1D_inh3s")
 [connection signal="pressed" from="BUTTONS/forrest_map_select" to="." method="_on_forrest_map_select_pressed"]
 [connection signal="pressed" from="BUTTONS/red_map_selected" to="." method="_on_red_map_selected_pressed"]
 [connection signal="value_changed" from="SLIDERS/SFX_volume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="SLIDERS/SFX_volume" to="." method="_on_sfx_volume_value_changed"]
 [connection signal="value_changed" from="SLIDERS/music_vol" to="." method="_on_music_vol_value_changed"]
