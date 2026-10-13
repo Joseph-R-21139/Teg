@@ -713,9 +713,10 @@ scale = Vector2(3.2285993, 3.4316404)
 texture = ExtResource("4_1nroa")
 hframes = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="VISUAL_ASSETS" unique_id=1619926537]
+[node name="background" type="Sprite2D" parent="VISUAL_ASSETS" unique_id=1619926537]
+modulate = Color(0, 0, 0, 1)
 z_index = -2
-position = Vector2(699.5, 242.00003)
+position = Vector2(699.5, 241.00003)
 scale = Vector2(15.613281, 2288.0002)
 texture = SubResource("GradientTexture1D_jqnav")
 

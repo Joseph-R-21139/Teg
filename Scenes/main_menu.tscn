@@ -39,7 +39,7 @@ texture = ExtResource("1_48xlc")
 [node name="backdrop" type="Sprite2D" parent="VISUAL_ASSETES" unique_id=1929539277]
 self_modulate = Color(0, 0, 0, 1)
 z_index = -1
-position = Vector2(574.50006, 326)
+position = Vector2(573.5, 326)
 scale = Vector2(18.296875, 10.499999)
 texture = SubResource("GradientTexture2D_ce3w2")
 
