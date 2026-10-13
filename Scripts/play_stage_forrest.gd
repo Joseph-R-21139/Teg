@@ -45,7 +45,7 @@ func _on_end_timer_timeout() -> void:
 func _on_start_timer_timeout() -> void:
 	#Coundown hiding
 	$VISUAL_ASSETS/countdown_animation.hide()
-	#This gives the players music
+	#This gives the players movement
 	Global.player_1_paused = false
 	Global.player_2_paused = false
 	$end_timer.start()
