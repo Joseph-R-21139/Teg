@@ -51,9 +51,9 @@ metadata/_edit_use_anchors_ = true
 [node name="forrest_map_select" type="Button" parent="BUTTONS" unique_id=2002367348]
 texture_filter = 1
 offset_left = 393.0
-offset_top = 106.0
+offset_top = 105.0
 offset_right = 568.0
-offset_bottom = 208.0
+offset_bottom = 207.0
 text = "Forrest"
 
 [node name="red_map_selected" type="Button" parent="BUTTONS" unique_id=1944684862]
