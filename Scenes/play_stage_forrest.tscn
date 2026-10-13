@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dro33ap1yje6k" path="res://Scenes/player_base.tscn" id="2_koq2v"]
 [ext_resource type="AudioStream" uid="uid://c42bitqfq40er" path="res://Sounds/tuomas_data-game-countdown-62-199828.mp3" id="3_b178s"]
 [ext_resource type="Texture2D" uid="uid://3w1xfbw3ifk0" path="res://Sprites/new_joseph_sprite.png" id="3_do1k0"]
+[ext_resource type="Script" uid="uid://ce1dmd4iiexfl" path="res://Scripts/camera_2d.gd" id="3_rx7qk"]
 [ext_resource type="AudioStream" uid="uid://ck412wiuhjf8m" path="res://Sounds/moodmode-retro-game-arcade-short-236130.mp3" id="7_b178s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_koq2v"]
@@ -657,11 +658,6 @@ _data = {
 
 [sub_resource type="GDScript" id="GDScript_v1t75"]
 
-[sub_resource type="GDScript" id="GDScript_do1k0"]
-script/source = "extends Camera2D
-
-"
-
 [node name="play_stage_forrest" type="Node2D" unique_id=1847711376]
 script = ExtResource("1_8vsmm")
 
@@ -739,7 +735,7 @@ drag_right_margin = 1.0
 drag_bottom_margin = 1.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = SubResource("GDScript_do1k0")
+script = ExtResource("3_rx7qk")
 
 [node name="Label" type="Label" parent="." unique_id=1885707565]
 offset_top = -584.0

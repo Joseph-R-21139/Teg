@@ -1,5 +1,6 @@
 extends Node2D
 
-#This plays the tag animation
+
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$star_animation.play("star_flash")
